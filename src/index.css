@@ -1,0 +1,12 @@
+.appbar {
+  background: rgb(242, 240, 25);
+  background: linear-gradient(
+    0deg,
+    rgba(242, 240, 25, 1) 0%,
+    rgba(253, 118, 45, 1) 69%
+  );
+}
+
+* {
+  background: "antiquewhite";
+}
