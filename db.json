@@ -1,14 +1,6 @@
 {
   "events": [
     {
-      "photo": "https://ticket.kg/images/items/koncert_simfonichesk1652861537.jpg",
-      "title": "Концерт симфонического оркестра",
-      "date": "13.06.2022",
-      "price": "200",
-      "place": "Кыргызский драм. театр им.Абдымомунова",
-      "id": 9
-    },
-    {
       "photo": "https://ticket.kg/images/items/tvorcheskaya_vstrech1652847775.jpg",
       "title": "ТВОРЧЕСКАЯ ВСТРЕЧА С СОЛИСТОМ ОПЕРЫ, НАРОДНЫМ АРТИСТОМ КР БАКТЫБЕКОМ ЫБЫКЕЕВЫМ",
       "date": "14.06.2022",
@@ -20,33 +12,9 @@
       "photo": "https://ticket.kg/images/items/img_flamenco_jazz1654573073.jpeg",
       "title": "FLAMENCO JAZZ",
       "date": "24.06.2022",
-      "price": "300-1000",
+      "price": "500",
       "place": "Кыргызский театр оперы и балета им А.Малдыбаева",
       "id": 11
-    },
-    {
-      "photo": "hgv",
-      "title": "hgv",
-      "date": "ufgt",
-      "price": "igy",
-      "place": "jhgfy",
-      "id": 12
-    },
-    {
-      "photo": "",
-      "title": "",
-      "date": "",
-      "price": "",
-      "place": "",
-      "id": 13
-    },
-    {
-      "photo": "hjyt",
-      "title": "hytr",
-      "date": "jyt",
-      "price": "utyju",
-      "place": "hg",
-      "id": 14
     }
   ]
 }
