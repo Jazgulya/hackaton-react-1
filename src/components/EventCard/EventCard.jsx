@@ -6,14 +6,14 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
+// import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+// import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -21,6 +21,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
+import { cartContext } from "../../contexts/cartContext";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -34,6 +35,11 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function EventCard({ item }) {
+  const { getCart, cart, changeProductCount, deleteFromCart, addProductToCart } =
+    React.useContext(cartContext);
+    
+    console.log(addProductToCart)
+  
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -71,7 +77,7 @@ export default function EventCard({ item }) {
         </Box>
       </CardContent>
       <Box style={{ display: "flex", justifyContent: "center" }}>
-        <Button variant="contained" color="success">
+        <Button  variant="contained" color="success" onClick={() => addProductToCart(item)} >
           Купить билет
         </Button>
       </Box>
