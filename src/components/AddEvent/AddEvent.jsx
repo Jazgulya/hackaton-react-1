@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import SendIcon from "@mui/icons-material/Send";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
+import { Box } from "@mui/material";
 
 const AddEvent = () => {
   //photo, title, date, price, place

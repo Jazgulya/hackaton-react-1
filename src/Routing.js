@@ -9,23 +9,30 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import NavBar from "./components/NavBar/NavBar";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import AuthContextProvider from "./contexts/authContext";
+import Cart from "./components/Cart/Cart";
+// import Home from "./components/Home/Home";
+import CartContextProvider from "./contexts/cartContext";
 import EventsContextProvider from "./contexts/eventContext";
 
 const Routing = () => {
   return (
     <AuthContextProvider>
       <EventsContextProvider>
-        <BrowserRouter>
-          <Header />
-          <NavBar />
-          <Routes>
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/register" element={<RegisterForm />} />
-            <Route path="/add-event" element={<AddEvent />} />
-            <Route path="/events" element={<EventsList />} />
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </BrowserRouter>
+        <CartContextProvider>
+          <BrowserRouter>
+            <Header />
+            <NavBar />
+            <Routes>
+              <Route path="/login" element={<LoginForm />} />
+              <Route path="/register" element={<RegisterForm />} />
+              {/* <Route path="/" element={<Home />} /> */}
+              <Route path="/add-event" element={<AddEvent />} />
+              <Route path="/events" element={<EventsList />} />;
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </BrowserRouter>
+        </CartContextProvider>
       </EventsContextProvider>
     </AuthContextProvider>
   );

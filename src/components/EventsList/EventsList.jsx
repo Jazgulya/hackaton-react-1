@@ -11,7 +11,7 @@ const EventsList = () => {
   // console.log(events);
   return (
     <div style={{ display: "flex" }}>
-      {events.map((item) => (
+      {events.map(item => (
         <EventCard key={item.id} item={item} />
       ))}
     </div>

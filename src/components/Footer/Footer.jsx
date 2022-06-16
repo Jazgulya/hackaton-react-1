@@ -5,14 +5,13 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "grey" }}>
-      {/* className={"footer"} */}
+    <footer style={{ backgroundColor: "grey" }} className="footer">
       <Box
         px={{ xs: 3, sm: 10 }}
         py={{ xs: 5, sm: 10 }}
         bgcolor="text.secondary"
         color="white">
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" height="100px">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={3}>
               <Box>О нас</Box>

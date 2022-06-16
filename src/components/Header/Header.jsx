@@ -16,9 +16,10 @@ import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import ShopIcon from "@mui/icons-material/Shop";
+// import { cartContext } from "../../contexts/cartContext";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
-const pages = ["Products", "Pricing", "Blog"];
+// const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
@@ -93,7 +94,7 @@ const Header = () => {
             style={{ marginRight: "30px" }}
             src={"https://ticket.kg/images/logo.svg"}
             alt="logo"
-            // onClick={() => navigate("/")}
+            onClick={() => navigate("/")}
           />
           <Box style={{ marginRight: "30px", color: "black" }}>
             <Typography id="number-1" variant="h6" component="h2">

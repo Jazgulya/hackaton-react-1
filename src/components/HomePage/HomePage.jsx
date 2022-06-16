@@ -1,10 +1,12 @@
 import {
   Box,
   Button,
+  Card,
   CardActions,
   CardContent,
   CardMedia,
   Container,
+  IconButton,
   ImageList,
   ImageListItem,
   ImageListItemBar,
@@ -12,15 +14,21 @@ import {
   Tabs,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   const itemData = [
     {
       img: "https://sxodim.com/uploads/images/2022/06/13/optimized/3b9fd5bb734c2750814e775780b190bb_800xauto-q-85.jpg",
@@ -61,7 +69,6 @@ const HomePage = () => {
           // fontWeight: "1800px",
           textAlign: "center",
           fontFamily: "Merriweather",
-          dataAos: "zoom-in",
         }}>
         Покупай билеты на интересные мероприятия онлайн!
       </Typography>
@@ -83,11 +90,20 @@ const HomePage = () => {
             component="img"
             width="100%"
             height="100%"
-            image="https://sxodim.com/uploads/posts/2022/02/28/optimized/4229cb4ec93a2e549a62742ba144b1ac_1522x570-q-85.jpg"
+            image="https://sxodim.com/uploads/posts/2022/06/09/optimized/67941269efb6793e96c90e5dbd983eaf_1522x570-q-85.jpg"
           />
         </Carousel>
+        <Typography
+          variant="h4"
+          fontWeight="300px"
+          textAlign="center"
+          data-aos="fade-up">
+          Актуальные события в Бишкеке
+        </Typography>
       </Container>
-      <Typography variant="h5">Ближайшие мероприятия</Typography>
+      <Typography variant="h5" margin={"20px"}>
+        Ближайшие мероприятия
+      </Typography>
       <Box display={"flex"} margin={"20px"} justifyContent="space-between">
         <ImageList sx={{ width: 700, height: 350 }}>
           {itemData.map(item => (
@@ -106,6 +122,83 @@ const HomePage = () => {
         </ImageList>
         <Calendar className="react-calendar" />
       </Box>
+      ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      <Container
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          margin: "40px 0 40px 0",
+        }}>
+        <Card data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "grey",
+            }}>
+            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
+              <Typography component="div" variant="h5" marginBottom="10px">
+                Сольный концерт JK
+              </Typography>
+              <Button
+                size="small"
+                variant="contained"
+                color="warning"
+                margin="10px"
+                // onClick={()=> navigate()}
+              >
+                Узнать подробнее
+              </Button>
+            </CardContent>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                pl: 1,
+                pb: 1,
+              }}></Box>
+          </Box>
+          <CardMedia
+            component="img"
+            sx={{ width: 151, margin: "20px" }}
+            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3voSygZUI3O4o-4zgbxRPT8aunr1TneBjA&usqp=CAU"
+            alt="Live from space album cover"
+          />
+        </Card>
+        <Card data-aos="fade-left" sx={{ display: "flex", maxWidth: "500px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}>
+            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
+              <Typography component="div" variant="h5" marginBottom="10px">
+                Балет «Жизель»
+              </Typography>
+              <Button
+                size="small"
+                variant="contained"
+                color="warning"
+                margin="10px">
+                Узнать подробнее
+              </Button>
+            </CardContent>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                pl: 1,
+                pb: 1,
+              }}></Box>
+          </Box>
+          <CardMedia
+            component="img"
+            sx={{ width: 151, margin: "20px" }}
+            image="https://sxodim.com/uploads/images/2022/06/15/optimized/645b9668ee43e1df8897de2cbafcc56e_800xauto-q-85.jpg"
+            alt="Live from space album cover"
+          />
+        </Card>
+      </Container>
     </Container>
   );
 };
