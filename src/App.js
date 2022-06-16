@@ -9,7 +9,6 @@ import NavBar from "./components/NavBar/NavBar";
 const App = () => {
   return (
     <div>
-      <Header />
       <NavBar />
       <Routing />
       <Footer />

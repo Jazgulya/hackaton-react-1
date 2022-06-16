@@ -12,12 +12,9 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { styled, alpha } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
-import InputBase from "@mui/material/InputBase";
+
 import ShopIcon from "@mui/icons-material/Shop";
 import "./Header.css";
-const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
@@ -38,47 +35,6 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  }));
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "12ch",
-        "&:focus": {
-          width: "20ch",
-        },
-      },
-    },
-  }));
 
   return (
     <AppBar position="static">
@@ -98,21 +54,6 @@ const Header = () => {
             </Typography>
           </Box>
 
-          <Search
-            style={{
-              marginRight: "30px",
-              border: "1px solid black",
-            }}
-          >
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              style={{ color: "black", backgroundColor: "whitesmoke" }}
-              placeholder="Поиск"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
