@@ -5,6 +5,8 @@ export const eventContext = React.createContext();
 const API = "http://localhost:8000/events";
 const INIT_STATE = {
   events: [],
+  oneEvent: null,
+  pages: 0,
 };
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
@@ -12,6 +14,7 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         events: action.payload.data,
+        pages: Math.ceil(action.payload.headers["x-total-count"] / 3),
       };
 
     case "GET_ONE_EVENT":
@@ -29,7 +32,7 @@ const EventsContextProvider = ({ children }) => {
     getEvents();
   }
   async function getEvents() {
-    let res = await axios(API);
+    let res = await axios(`${API}${window.location.search}`);
     dispatch({
       type: "GET_EVENTS",
       payload: res,
@@ -56,6 +59,7 @@ const EventsContextProvider = ({ children }) => {
       value={{
         events: state.events,
         oneEvent: state.oneEvent,
+        pages: state.pages,
         addEvent,
         getEvents,
         deleteEvent,

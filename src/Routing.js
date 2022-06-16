@@ -21,7 +21,7 @@ const Routing = () => {
         <CartContextProvider>
           <BrowserRouter>
             <Header />
-            <NavBar />
+            {/* <NavBar /> */}
             <Routes>
               <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<RegisterForm />} />

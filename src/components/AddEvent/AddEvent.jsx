@@ -27,7 +27,7 @@ const AddEvent = () => {
       !photo.trim() ||
       !title.trim() ||
       !date.trim() ||
-      !price.trim() ||
+      !price ||
       !place.trim()
     ) {
       alert("Заполните все поля!");
@@ -72,7 +72,7 @@ const AddEvent = () => {
       />
       <TextField
         value={price}
-        onChange={e => setPrice(e.target.value)}
+        onChange={e => setPrice(+e.target.value)}
         label="Price"
         color="secondary"
         focused

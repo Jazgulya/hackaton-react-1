@@ -1,20 +1,60 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { eventContext } from "../../contexts/eventContext";
 import EventCard from "../EventCard/EventCard";
+import { useSearchParams } from "react-router-dom";
+import Filters from "../Filters/Filters";
+import { Pagination } from "@mui/material";
+import { Box, Container } from "@mui/system";
 
 const EventsList = () => {
-  const { events, getEvents } = useContext(eventContext);
-
+  const { events, getEvents, pages } = useContext(eventContext);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(
+    searchParams.get("") ? searchParams.get("q") : ""
+  );
+  const [page, setPage] = useState(1);
+  const [price, setPrice] = useState([50, 5000]);
   useEffect(() => {
     getEvents();
   }, []);
-  // console.log(events);
+
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+      _page: page,
+      _limit: 3,
+      price_gte: price[0],
+      price_lte: price[1],
+    });
+  }, [search, page, price]);
+
+  useEffect(() => {
+    getEvents();
+  }, [searchParams]);
+
   return (
-    <div style={{ display: "flex" }}>
-      {events.map(item => (
-        <EventCard key={item.id} item={item} />
-      ))}
-    </div>
+    <Container>
+      <Filters
+        search={search}
+        setSearch={setSearch}
+        price={price}
+        setPrice={setPrice}
+      />
+      <Box display={"flex"}>
+        {events.map(item => (
+          <EventCard key={item.id} item={item} />
+        ))}
+      </Box>
+      <Box display={"flex"} justifyContent={"center"}>
+        <Pagination
+          page={page}
+          count={isNaN(pages) ? 0 : pages}
+          variant="outlined"
+          shape="rounded"
+          onChange={(e, value) => setPage(value)}
+        />
+      </Box>
+    </Container>
   );
 };
 
