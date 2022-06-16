@@ -17,12 +17,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import ShopIcon from "@mui/icons-material/Shop";
 import "./Header.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -83,11 +83,11 @@ const Header = () => {
   }));
 
   return (
-    <AppBar className="appbar" position="static">
+    <AppBar className="appbar" position="fixed">
       <Container
         className="appbar"
         maxWidth="xl"
-        style={{ backgroundColor: "orange" }}>
+        style={{ backgroundColor: "white" }}>
         <Toolbar>
           <img
             style={{ marginRight: "30px" }}
@@ -212,21 +212,26 @@ const Header = () => {
             <IconButton>
               <ShopIcon />
             </IconButton>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "black",
-                // backgroundColor: "steelblue",
-                display: "block",
-              }}>
-              Войти
-            </Button>
+            <Link to="/login">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "black",
+                  // backgroundColor: "steelblue",
+                  display: "block",
+                }}>
+                Войти
+              </Button>
+            </Link>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="User"
+                  src="https://png.pngtree.com/png-vector/20190329/ourlarge/pngtree-vector-avatar-icon-png-image_889398.jpg "
+                />
               </IconButton>
             </Tooltip>
             <Menu

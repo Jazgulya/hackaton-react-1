@@ -13,6 +13,10 @@ function reducer(state = INIT_STATE, action) {
         ...state,
         events: action.payload.data,
       };
+
+    case "GET_ONE_EVENT":
+      return { ...state, oneEvent: action.payload };
+
     default:
       return state;
   }
@@ -31,12 +35,32 @@ const EventsContextProvider = ({ children }) => {
       payload: res,
     });
   }
+  async function deleteEvent(id) {
+    await axios.delete(`${API}/${id}`);
+    getEvents();
+  }
+  async function getOneEvent(id) {
+    let res = await axios(`${API}/${id}`);
+    dispatch({
+      type: "GET_ONE_EVENT",
+      payload: res.data,
+    });
+  }
+  async function updateEvent(id, editedEvent) {
+    await axios.patch(`${API}/${id}`, editedEvent);
+    getEvents();
+  }
+
   return (
     <eventContext.Provider
       value={{
         events: state.events,
+        oneEvent: state.oneEvent,
         addEvent,
         getEvents,
+        deleteEvent,
+        getOneEvent,
+        updateEvent,
       }}
     >
       {children}

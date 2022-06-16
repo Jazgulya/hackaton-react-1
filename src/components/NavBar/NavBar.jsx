@@ -6,12 +6,11 @@ const NavBar = () => {
   return (
     <div
       style={{
-        backgroundColor: "whitesmoke",
+        // backgroundColor: "transparent",
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-      }}
-    >
+      }}>
       <Tab
         style={{
           marginRight: "15px",

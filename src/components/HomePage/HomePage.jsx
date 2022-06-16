@@ -16,32 +16,34 @@ import React from "react";
 import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 const HomePage = () => {
   const navigate = useNavigate();
   const itemData = [
     {
-      img: "https://i.pinimg.com/originals/10/56/4b/10564b6e188c2e7464c65c161b75e438.gif",
+      img: "https://sxodim.com/uploads/images/2022/06/13/optimized/3b9fd5bb734c2750814e775780b190bb_800xauto-q-85.jpg",
       title: "Концерты",
     },
     {
-      img: "https://i.pinimg.com/originals/43/3d/83/433d83f7e481f35245f8c6bb7c7591d8.gif",
+      img: "https://sxodim.com/uploads/images/2022/06/06/optimized/31ad79b553ba963ce71707334cef9c9d_800xauto-q-85.jpg",
       title: "Кино",
     },
     {
-      img: "https://i.pinimg.com/originals/10/e0/93/10e0938774f51bc442180a6854454ac5.gif",
+      img: "https://sxodim.com/uploads/images/2022/02/28/optimized/192c26cadc9cd6313311af3b166e793a_800xauto-q-85.jpg",
       title: "Детям",
     },
     {
-      img: "https://c.tenor.com/Il41GOimvMsAAAAd/travel.gif",
+      img: "https://sxodim.com/uploads/images/2022/02/28/optimized/c027af2199d480d9aeb540c1c157dfae_800xauto-q-85.jpg",
       title: "Туризм",
     },
     {
-      img: "https://static.wixstatic.com/media/7090dd_05e118671744498a9838ef8ae2b886cf~mv2.gif",
+      img: "https://sxodim.com/uploads/images/2022/06/13/optimized/eb639b8ddbe3a6a82d1a94954c6e6638_800xauto-q-85.jpg",
       title: "Выставки",
     },
     {
-      img: "https://media3.giphy.com/media/3oz8xwpSPQ5LvJTaP6/giphy.gif",
+      img: "https://sxodim.com/uploads/images/2022/02/28/optimized/1e372064573f7e20991ff63a6859bbea_800xauto-q-85.jpg",
       title: "Спорт",
     },
   ];
@@ -53,42 +55,45 @@ const HomePage = () => {
         justifyContent: "center",
       }}>
       <Typography
-        style={{ margin: "20px", fontSize: "40px", fontWeight: "800px" }}>
+        style={{
+          margin: "30px",
+          fontSize: "35px",
+          // fontWeight: "1800px",
+          textAlign: "center",
+          fontFamily: "Merriweather",
+          dataAos: "zoom-in",
+        }}>
         Покупай билеты на интересные мероприятия онлайн!
       </Typography>
       <Container>
-        <CardMedia
-          component="img"
-          width="100%"
-          height="70%"
-          image="https://24wallpapers.com/app-gateway/wallpaper-uploads/wallpapers/legacyUploads/wi8082301e7c6-320f-43a1-ac94-8de2390a892a1.jpg"
-          alt="green iguana"
-        />
+        <Carousel>
+          <CardMedia
+            component="img"
+            width="100%"
+            height="100%"
+            image="https://pre-party.com.ua/thumbnails/c4/c453d87c192b496b78153b64d7b87c26.jpg"
+          />
+          <CardMedia
+            component="img"
+            width="100%"
+            height="100%"
+            image="https://sxodim.com/uploads/posts/2022/06/06/optimized/e479bba20c8ccd507e1f52a127344979_1522x570-q-85.jpg"
+          />
+          <CardMedia
+            component="img"
+            width="100%"
+            height="100%"
+            image="https://sxodim.com/uploads/posts/2022/02/28/optimized/4229cb4ec93a2e549a62742ba144b1ac_1522x570-q-85.jpg"
+          />
+        </Carousel>
       </Container>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Концерт симфонического оркестра. Начало в 18.00.
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Меcто проведения: Кыргызская государственная филармония им. Т.
-          Сатылганова
-        </Typography>
-        <CardActions>
-          <Button size="small" variant="contained" color="success">
-            Купить билет
-          </Button>
-          <Button size="small" variant="contained" color="success">
-            Подробнее
-          </Button>
-        </CardActions>
-      </CardContent>
       <Typography variant="h5">Ближайшие мероприятия</Typography>
-      <Box display={"flex"} justifyContent="space-between">
-        <ImageList sx={{ width: 700, height: 250 }}>
+      <Box display={"flex"} margin={"20px"} justifyContent="space-between">
+        <ImageList sx={{ width: 700, height: 350 }}>
           {itemData.map(item => (
             <ImageListItem key={item.img}>
               <img
-                cursor="pointer"
+                style={{ cursor: "pointer" }}
                 src={`${item.img}?w=248&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}

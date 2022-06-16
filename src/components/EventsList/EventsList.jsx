@@ -8,7 +8,7 @@ const EventsList = () => {
   useEffect(() => {
     getEvents();
   }, []);
-  console.log(events);
+  // console.log(events);
   return (
     <div style={{ display: "flex" }}>
       {events.map((item) => (

@@ -1,52 +1,20 @@
 {
   "events": [
     {
-      "photo": "https://ticket.kg/images/items/koncert_simfonichesk1652861537.jpg",
-      "title": "Концерт симфонического оркестра",
-      "date": "13.06.2022",
-      "price": "200",
-      "place": "Кыргызский драм. театр им.Абдымомунова",
-      "id": 9
+      "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/b083861fd09d4e5d48e32703e1bbf88f_800xauto-q-85.jpg",
+      "title": " Антикинотеатр \"The story\"",
+      "date": "29/06/22",
+      "price": "от 400 сом",
+      "place": "ул. ​Тыныстанова, 99",
+      "id": 2
     },
     {
-      "photo": "https://ticket.kg/images/items/tvorcheskaya_vstrech1652847775.jpg",
-      "title": "ТВОРЧЕСКАЯ ВСТРЕЧА С СОЛИСТОМ ОПЕРЫ, НАРОДНЫМ АРТИСТОМ КР БАКТЫБЕКОМ ЫБЫКЕЕВЫМ",
-      "date": "14.06.2022",
-      "price": "50",
-      "place": " Кыргызский театр оперы и балета им А.Малдыбаева",
-      "id": 10
-    },
-    {
-      "photo": "https://ticket.kg/images/items/img_flamenco_jazz1654573073.jpeg",
-      "title": "FLAMENCO JAZZ",
-      "date": "24.06.2022",
-      "price": "300-1000",
-      "place": "Кыргызский театр оперы и балета им А.Малдыбаева",
-      "id": 11
-    },
-    {
-      "photo": "hgv",
-      "title": "hgv",
-      "date": "ufgt",
-      "price": "igy",
-      "place": "jhgfy",
-      "id": 12
-    },
-    {
-      "photo": "",
-      "title": "",
-      "date": "",
-      "price": "",
-      "place": "",
-      "id": 13
-    },
-    {
-      "photo": "hjyt",
-      "title": "hytr",
-      "date": "jyt",
-      "price": "utyju",
-      "place": "hg",
-      "id": 14
+      "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/041805c9e1585cac2e88ed10d3ac0920_800xauto-q-85.jpg",
+      "title": "Картинг клуб \"Старт\"",
+      "date": "23.06.22",
+      "price": "от 400 сом",
+      "place": "Парк \"Асанбай\"",
+      "id": 3
     }
   ]
 }
