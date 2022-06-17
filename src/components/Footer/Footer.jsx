@@ -1,17 +1,17 @@
 import { Grid, Link } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "grey" }}>
+    <footer style={{ backgroundColor: "grey" }} className="footer">
       <Box
         px={{ xs: 3, sm: 10 }}
         py={{ xs: 5, sm: 10 }}
         bgcolor="text.secondary"
-        color="white"
-      >
-        <Container maxWidth="lg">
+        color="white">
+        <Container maxWidth="lg" height="100px">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={3}>
               <Box>О нас</Box>
@@ -19,8 +19,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   О компании
                 </Link>
               </Box>
@@ -28,8 +27,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   Контакты
                 </Link>
               </Box>
@@ -37,8 +35,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   Кассы
                 </Link>
               </Box>
@@ -49,8 +46,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   Как купить билеты
                 </Link>
               </Box>
@@ -58,8 +54,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   Возврат билетов
                 </Link>
               </Box>
@@ -70,8 +65,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   Facebook
                 </Link>
               </Box>
@@ -79,8 +73,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   Instagram
                 </Link>
               </Box>
@@ -88,8 +81,7 @@ const Footer = () => {
                 <Link
                   style={{ textDecoration: "none" }}
                   href="/"
-                  color="inherit"
-                >
+                  color="inherit">
                   V kontakte
                 </Link>
               </Box>

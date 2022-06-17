@@ -1,36 +1,28 @@
 {
   "events": [
     {
-      "photo": "https://ticket.kg/images/items/tvorcheskaya_vstrech1652847775.jpg",
-      "title": "ТВОРЧЕСКАЯ ВСТРЕЧА С СОЛИСТОМ ОПЕРЫ, НАРОДНЫМ АРТИСТОМ КР БАКТЫБЕКОМ ЫБЫКЕЕВЫМ",
-      "date": "14.06.2022",
-      "price": 50,
-      "place": " Кыргызский театр оперы и балета им А.Малдыбаева",
-      "id": 10
+      "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/b083861fd09d4e5d48e32703e1bbf88f_800xauto-q-85.jpg",
+      "title": " Антикинотеатр \"The story\"",
+      "date": "29/06/22",
+      "price": 400,
+      "place": "ул. ​Тыныстанова, 99",
+      "id": 2
     },
     {
-      "photo": "https://ticket.kg/images/items/img_flamenco_jazz1654573073.jpeg",
-      "title": "FLAMENCO JAZZ",
-      "date": "24.06.2022",
+      "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/041805c9e1585cac2e88ed10d3ac0920_800xauto-q-85.jpg",
+      "title": "Картинг клуб \"Старт\"",
+      "date": "23.06.22",
+      "price": 400,
+      "place": "Парк \"Асанбай\"",
+      "id": 3
+    },
+    {
+      "photo": "https://sxodim.com/uploads/images/2022/06/15/optimized/23b598ddae0e3205f4435f4a55377eed_800xauto-q-85.jpg",
+      "title": "\"Toyboss Night Run\"",
+      "date": "18.06.22",
       "price": 500,
-      "place": "Кыргызский театр оперы и балета им А.Малдыбаева",
-      "id": 11
-    },
-    {
-      "photo": "csdcs",
-      "title": "sdcsdc",
-      "date": "sdcsdc",
-      "price": 150,
-      "place": "sdcsdc",
-      "id": 12
-    },
-    {
-      "photo": "sdfwf",
-      "title": "jkhki",
-      "date": "kiuiku",
-      "price": 950,
-      "place": "mhjthu4s",
-      "id": 13
+      "place": "ул. ​Чокана Валиханова, 2",
+      "id": 4
     }
   ]
 }
