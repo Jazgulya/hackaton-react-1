@@ -12,26 +12,25 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { styled, alpha } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
-import InputBase from "@mui/material/InputBase";
-// import { useNavigate } from "react-router-dom";
 import ShopIcon from "@mui/icons-material/Shop";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 // import { cartContext } from "../../contexts/cartContext";
 import "./Header.css";
+import { Link, useNavigate } from "react-router-dom";
+import Search from "@mui/icons-material/Search";
 // const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 const Header = () => {
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   // const navigate = useNavigate();
 
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = event => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenUserMenu = event => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -42,56 +41,19 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  }));
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "12ch",
-        "&:focus": {
-          width: "20ch",
-        },
-      },
-    },
-  }));
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" style={{ backgroundColor: "white" }}>
+    <AppBar className="appbar" position="fixed">
+      <Container
+        className="appbar"
+        maxWidth="xl"
+        style={{ backgroundColor: "white" }}>
         <Toolbar>
           <img
             style={{ marginRight: "30px" }}
             src={"https://ticket.kg/images/logo.svg"}
             alt="logo"
+            onClick={() => navigate("/")}
           />
           <Box style={{ marginRight: "30px", color: "black" }}>
             <Typography id="number-1" variant="h6" component="h2">
@@ -102,21 +64,6 @@ const Header = () => {
             </Typography>
           </Box>
 
-          <Search
-            style={{
-              marginRight: "30px",
-              border: "1px solid black",
-            }}
-          >
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              style={{ color: "black", backgroundColor: "whitesmoke" }}
-              placeholder="Поиск"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -124,8 +71,7 @@ const Header = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
-            >
+              color="inherit">
               <MenuIcon />
             </IconButton>
             <Menu
@@ -144,8 +90,7 @@ const Header = () => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
-              }}
-            >
+              }}>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Как купить</Typography>
               </MenuItem>
@@ -169,8 +114,8 @@ const Header = () => {
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Box
             style={{ display: "flex", justifyContent: "space-evenly" }}
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-          >
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+
             <Button
               onClick={handleCloseNavMenu}
               sx={{
@@ -178,8 +123,7 @@ const Header = () => {
                 color: "black",
                 // backgroundColor: "steelblue",
                 display: "block",
-              }}
-            >
+              }}>
               Как купить?
             </Button>
             <Button
@@ -189,8 +133,7 @@ const Header = () => {
                 color: "black",
                 // backgroundColor: "steelblue",
                 display: "block",
-              }}
-            >
+              }}>
               Новости
             </Button>
             <Button
@@ -200,8 +143,7 @@ const Header = () => {
                 color: "black",
                 // backgroundColor: "steelblue",
                 display: "block",
-              }}
-            >
+              }}>
               Кассы
             </Button>
             <Button
@@ -211,29 +153,34 @@ const Header = () => {
                 color: "black",
                 // backgroundColor: "steelblue",
                 display: "block",
-              }}
-            >
+              }}>
               Язык
             </Button>
-            <IconButton >
-              <ShopIcon />
+            <IconButton onClick={`/cart`}>
+              <Link to="/cart">
+              <AddShoppingCartIcon />
+              </Link>
             </IconButton>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "black",
-                // backgroundColor: "steelblue",
-                display: "block",
-              }}
-            >
-              Войти
-            </Button>
+            <Link to="/login">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "black",
+                  // backgroundColor: "steelblue",
+                  display: "block",
+                }}>
+                Войти
+              </Button>
+            </Link>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="User"
+                  src="https://png.pngtree.com/png-vector/20190329/ourlarge/pngtree-vector-avatar-icon-png-image_889398.jpg "
+                />
               </IconButton>
             </Tooltip>
             <Menu
@@ -250,9 +197,8 @@ const Header = () => {
                 horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
+              onClose={handleCloseUserMenu}>
+              {settings.map(setting => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>

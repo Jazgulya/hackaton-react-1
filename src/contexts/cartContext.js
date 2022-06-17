@@ -35,7 +35,7 @@ const CartContextProvider = ({ children }) => {
       count: 1,
       subPrice: ticket.price,
     };
-    let isTicketInCart = cart.products.some(
+    let isTicketInCart = cart.tickets.some(
       item => item.item.id === ticket.id
     );
     if (isTicketInCart) {

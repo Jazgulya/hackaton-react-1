@@ -16,24 +16,61 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
+import { cartContext } from "../../contexts/cartContext";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
-import { cartContext } from "../../contexts/cartContext";
 // import { cartContext } from "../../contexts/cartContext";
 
 
+const ExpandMore = styled(props => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
+    duration: theme.transitions.duration.shortest,
+  }),
+}));
+
 export default function EventCard({ item }) {
+  const {
+    getCart,
+    cart,
+    changeProductCount,
+    deleteFromCart,
+    addProductToCart,
+  } = React.useContext(cartContext);
   const { deleteEvent } = React.useContext(eventContext);
-  const { addTicketToCart } = React.useContext(cartContext)
+  // console.log(addProductToCart);
+  const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   return (
-    <Card style={{ margin: "20px" }} sx={{ maxWidth: 345 }}>
-      <CardHeader style={{ textAlign: "center" }} title={item.title} />
+    <Card
+      style={{
+        margin: "50px",
+        padding: "10px",
+        border: "1px solid",
+        boxShadow: "1px 2px 9px #F4AAB9",
+      }}
+      sx={{ maxWidth: 300 }}
+      display="flex">
+      <CardHeader
+        style={{ textAlign: "center", height: "50px" }}
+        title={item.title}
+      />
       <CardMedia
-        style={{ objectFit: "fill" }}
+        style={{
+          objectFit: "fill",
+          boxShadow: "1px 2px 9px #F4AAB9",
+          borderRadius: "10px",
+        }}
         component="img"
-        height="194"
+        height="200"
         image={item.photo}
         alt="Photo"
       />
@@ -57,16 +94,19 @@ export default function EventCard({ item }) {
           </Typography>
         </Box>
       </CardContent>
-      <Box style={{ display: "flex", justifyContent: "center" }}>
+      <Box
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          padding: "10px",
+        }}>
         <Button
-          onClick={() => navigate(`/events/${item.id}`)}
           variant="contained"
           color="success"
-        >
+          onClick={() => addProductToCart(item)}>
           Купить билет
         </Button>
       </Box>
-
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
