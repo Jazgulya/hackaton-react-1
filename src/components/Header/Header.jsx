@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
+// import { useNavigate } from "react-router-dom";
 import ShopIcon from "@mui/icons-material/Shop";
 // import { cartContext } from "../../contexts/cartContext";
 import "./Header.css";
@@ -24,6 +25,8 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const navigate = useNavigate();
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -212,7 +215,7 @@ const Header = () => {
             >
               Язык
             </Button>
-            <IconButton>
+            <IconButton >
               <ShopIcon />
             </IconButton>
             <Button

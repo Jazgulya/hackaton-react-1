@@ -22,75 +22,69 @@ function reducer(state = INIT_STATE, action) {
 const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  function addProductToCart(product) {
+  function addTicketToCart(ticket) {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
       cart = {
-        products: [],
+        tickets: [],
         totalPrice: 0,
       };
     }
-    let newProduct = {
-      item: product,
+    let newTicket = {
+      item: ticket,
       count: 1,
-      subPrice: product.price,
+      subPrice: ticket.price,
     };
-    let isProductInCart = cart.products.some(
-      item => item.item.id === product.id
+    let isTicketInCart = cart.products.some(
+      item => item.item.id === ticket.id
     );
-    // console.log(isProductInCart);
-    if (isProductInCart) {
-      cart.products = cart.products.filter(item => item.item.id !== product.id);
+    if (isTicketInCart) {
+      cart.tickets = cart.tickets.filter(item => item.item.id !== ticket.id);
     } else {
-      cart.products.push(newProduct);
+      cart.tickets.push(newTicket);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
-    // console.log(cart);
-    // console.log(product);
     getCart();
   }
 
-  function checkProductInCart(product) {
+  function checkTicketInCart(ticket) {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
       cart = {
-        products: [],
+        tickets: [],
         totalPrice: 0,
       };
     }
-    let isProductInCart = cart.products.some(
-      item => item.item.id === product.id
+    let isTicketInCart = cart.tickets.some(
+      item => item.item.id === ticket.id
     );
-    return isProductInCart;
+    return isTicketInCart;
   }
+
   function getCart() {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
       cart = {
-        products: [],
+        tickets: [],
         totalPrice: 0,
       };
     }
-    cart.totalPrice = cart.products.reduce((prev, curr) => {
+    cart.totalPrice = cart.tickets.reduce((prev, curr) => {
       return prev + curr.subPrice;
     }, 0);
-
-    // 0 + 1000 = 1000
-    // 1000 + 2000 = 3000
-
-    // console.log(cart)
     dispatch({
       type: "GET_CART",
       payload: cart,
     });
     localStorage.setItem(JSON.stringify("cart", cart))
   }
-  function changeProductCount(count, id) {
+
+  function changeTicketCount(count, id) {
     if (count <= 0) {
       count = 1;
     }
     let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.products = cart.products.map(item => {
+    cart.tickets = cart.tickets.map(item => {
       if (item.item.id === id) {
         item.count = count;
         item.subPrice = item.count * item.item.price;
@@ -100,21 +94,24 @@ const CartContextProvider = ({ children }) => {
   localStorage.setItem("cart", JSON.stringify(cart));
     getCart();
   }
+
   function deleteFromCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.products = cart.products.filter(item => item.item.id !== id);
+    cart.tickets = cart.tickets.filter(item => item.item.id !== id);
     localStorage.setItem("cart", JSON.stringify(cart));
     getCart();
   }
+
+
   return (
     <cartContext.Provider
       value={{
         cart: state.cart,
         count: state.count,
-        addProductToCart,
-        checkProductInCart,
+        addTicketToCart,
+        checkTicketInCart,
         getCart,
-        changeProductCount,
+        changeTicketCount,
         deleteFromCart,
       }}>
       {children}
