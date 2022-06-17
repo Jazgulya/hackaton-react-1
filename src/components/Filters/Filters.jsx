@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
+import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import InputBase from "@mui/material/InputBase";
 import { Box, Input, Slider, TextField, Typography } from "@mui/material";
 
@@ -50,80 +50,101 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Filters = ({ search, setSearch, price, setPrice }) => {
   return (
-    <div>
-      <Search
+    <>
+      <div
         style={{
           display: "flex",
-          width: "250px",
-          height: "42px",
-          margin: "20px",
-          paddingLeft: "15px",
-          borderRadius: "30px",
-          border: "2px solid blue",
-          background: "lightblue",
-          outline: "none",
-          position: "relative",
-          transition: ".3s linear",
-        }}
-      >
-        <StyledInputBase
-          value={search}
-          style={{ color: "black", backgroundColor: "whitesmoke" }}
-          placeholder="Поиск событий"
-          inputProps={{ "aria-label": "search" }}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <SearchIconWrapper>
-          <SearchIcon
-            style={{
-              width: "30px",
-              height: "30px",
-              background: "blue",
-              border: "2px",
-              color: "white",
-
-              position: "absolute",
-              top: "5px",
-              right: "7px",
-            }}
+          justifyContent: "space-between",
+          marginTop: "30px",
+        }}>
+        <Search
+          style={{
+            display: "flex",
+            width: "400px",
+            height: "42px",
+            margin: "20px",
+            paddingLeft: "15px",
+            borderRadius: "50px",
+            border: "2px solid blue",
+            outline: "none",
+            position: "relative",
+            transition: ".3s linear",
+          }}>
+          <StyledInputBase
+            value={search}
+            style={{ color: "black" }}
+            placeholder="Поиск событий"
+            inputProps={{ "aria-label": "search" }}
+            onChange={e => setSearch(e.target.value)}
           />
-        </SearchIconWrapper>
-      </Search>
-      <Box style={{ border: "1px solid black", width: "300px" }}>
-        <Typography textAlign="center" variant="h5">
-          Цена{" "}
-        </Typography>
-        <Slider
-          getAriaLabel={() => "Temperature range"}
-          value={price}
-          onChange={(e, value) => setPrice(value)}
-          valueLabelDisplay="auto"
-          min={50}
-          max={5000}
-          step={50}
-        />
-        <TextField
-          style={{ width: "100px" }}
-          type="number"
-          value={price[0]}
-          label="От"
-          id="filled-hidden-label-small"
-          defaultValue="Small"
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          style={{ width: "100px", marginLeft: "40px" }}
-          value={price[1]}
-          type="number"
-          label="До"
-          id="filled-hidden-label-small"
-          defaultValue="Small"
-          variant="filled"
-          size="small"
-        />
-      </Box>
-    </div>
+          <SearchIconWrapper>
+            <ManageSearchIcon
+              style={{
+                width: "30px",
+                height: "30px",
+                border: "2px",
+
+                position: "absolute",
+                top: "5px",
+                right: "7px",
+              }}
+            />
+          </SearchIconWrapper>
+        </Search>
+        <Box
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            border: "3px solid blue",
+            borderRadius: "10px",
+            width: "650px",
+            margin: "10px",
+            padding: "10px",
+          }}>
+          <Typography variant="h7" marginTop="10px">
+            Фильтровать по цене:
+          </Typography>
+          <Slider
+            style={{
+              width: "40%",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10px",
+            }}
+            getAriaLabel={() => "Temperature range"}
+            value={price}
+            onChange={(e, value) => setPrice(value)}
+            valueLabelDisplay="auto"
+            min={50}
+            max={5000}
+            step={50}
+          />
+          <TextField
+            style={{ width: "90px" }}
+            type="number"
+            value={price[0]}
+            label="От"
+            id="filled-hidden-label-small"
+            defaultValue="Small"
+            variant="filled"
+            size="small"
+          />
+          <TextField
+            style={{ width: "100px", marginLeft: "10px", textAlign: "center" }}
+            value={price[1]}
+            type="number"
+            label="До"
+            id="filled-hidden-label-small"
+            defaultValue="Small"
+            variant="filled"
+            size="small"
+          />
+        </Box>
+      </div>
+      <Typography variant="h4" marginLeft="20px">
+        События Бишкека для вас
+      </Typography>
+    </>
   );
 };
 

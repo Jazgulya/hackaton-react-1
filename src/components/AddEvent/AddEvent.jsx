@@ -40,16 +40,19 @@ const AddEvent = () => {
   return (
     <Container
       style={{
-        // width: "300px",
         height: "450px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
-        alignItems: "start",
+        alignItems: "center",
         margin: "50px ",
       }}>
-      <Typography variant="h4"> Add new event</Typography>
+      <Typography variant="h3" style={{ margin: "10px" }}>
+        {" "}
+        Добавить новое событие
+      </Typography>
       <TextField
+        style={{ width: "350px" }}
         value={photo}
         onChange={e => setPhoto(e.target.value)}
         label="Photo"
@@ -57,6 +60,7 @@ const AddEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={title}
         onChange={e => setTitle(e.target.value)}
         label="Title"
@@ -64,6 +68,7 @@ const AddEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={date}
         onChange={e => setDate(e.target.value)}
         label="Date"
@@ -71,6 +76,7 @@ const AddEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={price}
         onChange={e => setPrice(+e.target.value)}
         label="Price"
@@ -78,6 +84,7 @@ const AddEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={place}
         onChange={e => setPlace(e.target.value)}
         label="Place"
@@ -89,7 +96,7 @@ const AddEvent = () => {
         color="secondary"
         variant="contained"
         endIcon={<SendIcon />}>
-        Send
+        Опубликовать
       </Button>
     </Container>
   );

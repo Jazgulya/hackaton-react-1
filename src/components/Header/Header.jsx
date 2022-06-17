@@ -17,6 +17,7 @@ import ShopIcon from "@mui/icons-material/Shop";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "@mui/icons-material/Search";
+import { Tab, Table } from "@mui/material";
 // const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
@@ -44,22 +45,15 @@ const Header = () => {
       <Container
         className="appbar"
         maxWidth="xl"
-        style={{ backgroundColor: "white" }}>
+        // style={{ backgroundColor: "purp" }}
+      >
         <Toolbar>
           <img
-            style={{ marginRight: "30px" }}
+            style={{ marginRight: "30px", cursor: "pointer" }}
             src={"https://ticket.kg/images/logo.svg"}
             alt="logo"
             onClick={() => navigate("/")}
           />
-          <Box style={{ marginRight: "30px", color: "black" }}>
-            <Typography id="number-1" variant="h6" component="h2">
-              +996 (501) 50-05-00
-            </Typography>
-            <Typography id="number-2" variant="h6" component="h2">
-              +996 (555) 42-40-04
-            </Typography>
-          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -92,15 +86,6 @@ const Header = () => {
                 <Typography textAlign="center">Как купить</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Новости</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Кассы</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Язык</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Войти</Typography>
               </MenuItem>
               <IconButton>
@@ -110,28 +95,23 @@ const Header = () => {
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Box
-            style={{ display: "flex", justifyContent: "space-evenly" }}
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              padding: "0 20px 0 20px",
+            }}
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={() => navigate("/events")}
               sx={{
                 my: 2,
                 color: "black",
                 // backgroundColor: "steelblue",
                 display: "block",
               }}>
-              Как купить?
+              Все события
             </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "black",
-                // backgroundColor: "steelblue",
-                display: "block",
-              }}>
-              Новости
-            </Button>
+
             <Button
               onClick={handleCloseNavMenu}
               sx={{
@@ -141,16 +121,6 @@ const Header = () => {
                 display: "block",
               }}>
               Кассы
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "black",
-                // backgroundColor: "steelblue",
-                display: "block",
-              }}>
-              Язык
             </Button>
             <IconButton>
               <ShopIcon />

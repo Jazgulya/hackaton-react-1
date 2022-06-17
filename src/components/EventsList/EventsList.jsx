@@ -3,7 +3,7 @@ import { eventContext } from "../../contexts/eventContext";
 import EventCard from "../EventCard/EventCard";
 import { useSearchParams } from "react-router-dom";
 import Filters from "../Filters/Filters";
-import { Pagination } from "@mui/material";
+import { Pagination, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 
 const EventsList = () => {
@@ -33,7 +33,7 @@ const EventsList = () => {
   }, [searchParams]);
 
   return (
-    <Container>
+    <Container style={{ marginTop: "60px" }}>
       <Filters
         search={search}
         setSearch={setSearch}
@@ -41,16 +41,17 @@ const EventsList = () => {
         setPrice={setPrice}
       />
       <Box display={"flex"}>
-        {events.map((item) => (
+        {events.map(item => (
           <EventCard key={item.id} item={item} />
         ))}
       </Box>
       <Box display={"flex"} justifyContent={"center"}>
         <Pagination
+          style={{ marginBottom: "20px" }}
           page={page}
           count={isNaN(pages) ? 0 : pages}
           variant="outlined"
-          shape="rounded"
+          color="secondary"
           onChange={(e, value) => setPage(value)}
         />
       </Box>
