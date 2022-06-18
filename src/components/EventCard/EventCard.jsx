@@ -16,13 +16,12 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
-import { cartContext } from "../../contexts/cartContext";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
 // import { cartContext } from "../../contexts/cartContext";
 
 
-const ExpandMore = styled((props) => {
+const ExpandMore = styled(props => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -59,8 +58,7 @@ export default function EventCard({ item }) {
         // maxWidth: "350px",
       }}
       sx={{ maxWidth: 300 }}
-      display="flex"
-    >
+      display="flex">
       <CardHeader
         style={{ textAlign: "center", height: "50px" }}
         title={item.title}
@@ -101,13 +99,11 @@ export default function EventCard({ item }) {
           display: "flex",
           justifyContent: "flex-start",
           padding: "10px",
-        }}
-      >
+        }}>
         <Button
           variant="contained"
           color="success"
-          onClick={() => navigate(`/events/${item.id}`)}
-        >
+          onClick={() => navigate(`/events/${item.id}`)}>
           Купить билет
         </Button>
       </Box>

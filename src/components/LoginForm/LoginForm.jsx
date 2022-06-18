@@ -21,7 +21,7 @@ const LoginForm = () => {
 
   return (
     <Box
-      margin={"20px"}
+      margin={"50px"}
       display={"flex"}
       flexDirection={"column"}
       alignItems={"center"}

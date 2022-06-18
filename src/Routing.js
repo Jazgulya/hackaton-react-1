@@ -9,29 +9,28 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import AuthContextProvider from "./contexts/authContext";
 import Cart from "./components/Cart/Cart";
-import CartContextProvider from "./contexts/cartContext";
 import EventsContextProvider from "./contexts/eventContext";
 import EditEvent from "./components/EditEvent/EditEvent";
+import Payment from "./components/Cart/Payment";
 
 const Routing = () => {
   return (
     <AuthContextProvider>
       <EventsContextProvider>
-        <CartContextProvider>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path="/login" element={<LoginForm />} />
-              <Route path="/register" element={<RegisterForm />} />
-              <Route path="/edit/:id" element={<EditEvent />} />
-              <Route path="/add-event" element={<AddEvent />} />
-              <Route path="/events" element={<EventsList />} />;
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/" element={<HomePage />} />
-              <Route path="/events/:id" element={<DetailsEvent />} />
-            </Routes>
-          </BrowserRouter>
-        </CartContextProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<RegisterForm />} />
+            <Route path="/edit/:id" element={<EditEvent />} />
+            <Route path="/add-event" element={<AddEvent />} />
+            <Route path="/events" element={<EventsList />} />;
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/events/:id" element={<DetailsEvent />} />
+          </Routes>
+        </BrowserRouter>
       </EventsContextProvider>
     </AuthContextProvider>
   );
