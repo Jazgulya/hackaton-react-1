@@ -12,7 +12,7 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         cart: action.payload,
-        count: action.payload.products.length,
+        count: action.payload.events.length,
       };
     default:
       return state;
@@ -22,98 +22,93 @@ function reducer(state = INIT_STATE, action) {
 const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  function addTicketToCart(ticket) {
+  function addEventToCart(event) {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
       cart = {
-        tickets: [],
+        events: [],
         totalPrice: 0,
       };
     }
-    let newTicket = {
-      item: ticket,
+    let newEvent = {
+      item: event,
       count: 1,
-      subPrice: ticket.price,
+      subPrice: event.price,
     };
-    let isTicketInCart = cart.tickets.some(
-      item => item.item.id === ticket.id
-    );
-    if (isTicketInCart) {
-      cart.tickets = cart.tickets.filter(item => item.item.id !== ticket.id);
+    let isEventInCart = cart.events.some((item) => item.item.id === event.id);
+    // console.log(isEventInCart);
+    if (isEventInCart) {
+      cart.events = cart.events.filter((item) => item.item.id !== event.id);
     } else {
-      cart.tickets.push(newTicket);
+      cart.events.push(newEvent);
     }
+
     localStorage.setItem("cart", JSON.stringify(cart));
+    // console.log(cart);
+    // console.log(event);
     getCart();
   }
-
-  function checkTicketInCart(ticket) {
+  function checkEventInCart(event) {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
       cart = {
-        tickets: [],
+        events: [],
         totalPrice: 0,
       };
     }
-    let isTicketInCart = cart.tickets.some(
-      item => item.item.id === ticket.id
-    );
-    return isTicketInCart;
+    let isEventInCart = cart.events.some((item) => item.item.id === event.id);
+    return isEventInCart;
   }
-
   function getCart() {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
       cart = {
-        tickets: [],
+        events: [],
         totalPrice: 0,
       };
     }
-    cart.totalPrice = cart.tickets.reduce((prev, curr) => {
+    cart.totalPrice = cart.events.reduce((prev, curr) => {
       return prev + curr.subPrice;
     }, 0);
+
     dispatch({
       type: "GET_CART",
       payload: cart,
     });
-    localStorage.setItem(JSON.stringify("cart", cart))
   }
-
-  function changeTicketCount(count, id) {
+  function changeEventCount(count, id) {
     if (count <= 0) {
       count = 1;
     }
     let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.tickets = cart.tickets.map(item => {
+    cart.events = cart.events.map((item) => {
       if (item.item.id === id) {
         item.count = count;
         item.subPrice = item.count * item.item.price;
       }
       return item;
     });
-  localStorage.setItem("cart", JSON.stringify(cart));
-    getCart();
-  }
-
-  function deleteFromCart(id) {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.tickets = cart.tickets.filter(item => item.item.id !== id);
     localStorage.setItem("cart", JSON.stringify(cart));
     getCart();
   }
-
-
+  function deleteFromCart(id) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.events = cart.events.filter((item) => item.item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    getCart();
+  }
   return (
     <cartContext.Provider
       value={{
         cart: state.cart,
         count: state.count,
-        addTicketToCart,
-        checkTicketInCart,
+        addEventToCart,
+        checkEventInCart,
         getCart,
-        changeTicketCount,
+        changeEventCount,
         deleteFromCart,
-      }}>
+      }}
+    >
       {children}
     </cartContext.Provider>
   );

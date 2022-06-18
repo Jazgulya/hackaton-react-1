@@ -12,26 +12,28 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import ShopIcon from "@mui/icons-material/Shop";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+// import ShopIcon from "@mui/icons-material/Shop";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 // import { cartContext } from "../../contexts/cartContext";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "@mui/icons-material/Search";
-import { Tab, Table } from "@mui/material";
+import { Badge } from "@mui/material";
+// import { cartContext } from "../../contexts/cartContext";
 // const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
+  // const { count } = React.useContext(cartContext);
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   // const navigate = useNavigate();
 
 
-  const handleOpenNavMenu = event => {
+  const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = event => {
+  const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -48,7 +50,7 @@ const Header = () => {
       <Container
         className="appbar"
         maxWidth="xl"
-        // style={{ backgroundColor: "purp" }}
+        style={{ backgroundColor: "white" }}
       >
         <Toolbar>
           <img
@@ -65,7 +67,8 @@ const Header = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit">
+              color="inherit"
+            >
               <MenuIcon />
             </IconButton>
             <Menu
@@ -84,7 +87,8 @@ const Header = () => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
-              }}>
+              }}
+            >
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Как купить</Typography>
               </MenuItem>
@@ -92,19 +96,15 @@ const Header = () => {
                 <Typography textAlign="center">Войти</Typography>
               </MenuItem>
               <IconButton>
-                <ShopIcon />
+                <AddShoppingCartIcon />
               </IconButton>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Box
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              padding: "0 20px 0 20px",
-            }}
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-
+            style={{ display: "flex", justifyContent: "space-evenly" }}
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+          >
             <Button
               onClick={() => navigate("/events")}
               sx={{
@@ -112,8 +112,20 @@ const Header = () => {
                 color: "black",
                 // backgroundColor: "steelblue",
                 display: "block",
-              }}>
-              Все события
+              }}
+            >
+              Как купить?
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "black",
+                // backgroundColor: "steelblue",
+                display: "block",
+              }}
+            >
+              Новости
             </Button>
 
             <Button
@@ -123,12 +135,33 @@ const Header = () => {
                 color: "black",
                 // backgroundColor: "steelblue",
                 display: "block",
-              }}>
+              }}
+            >
               Кассы
             </Button>
-            <IconButton>
-              <AddShoppingCartIcon/>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "black",
+                // backgroundColor: "steelblue",
+                display: "block",
+              }}
+            >
+              Язык
+            </Button>
+
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+              onClick={() => navigate("/cart")}
+            >
+              <Badge /*badgeContent={count}*/ color="error">
+                <AddShoppingCartIcon />
+              </Badge>
             </IconButton>
+
             <Link to="/login">
               <Button
                 onClick={handleCloseNavMenu}
@@ -137,7 +170,8 @@ const Header = () => {
                   color: "black",
                   // backgroundColor: "steelblue",
                   display: "block",
-                }}>
+                }}
+              >
                 Войти
               </Button>
             </Link>
@@ -165,8 +199,9 @@ const Header = () => {
                 horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}>
-              {settings.map(setting => (
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
