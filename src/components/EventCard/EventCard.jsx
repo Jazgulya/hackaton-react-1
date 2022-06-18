@@ -52,10 +52,11 @@ export default function EventCard({ item }) {
   return (
     <Card
       style={{
-        margin: "50px",
+        margin: "35px",
         padding: "10px",
         border: "1px solid",
         boxShadow: "1px 2px 9px #F4AAB9",
+        // maxWidth: "350px",
       }}
       sx={{ maxWidth: 300 }}
       display="flex">
