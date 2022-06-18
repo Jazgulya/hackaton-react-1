@@ -18,6 +18,7 @@ import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
+import { authContext } from "../../contexts/authContext";
 
 const ExpandMore = styled(props => {
   const { expand, ...other } = props;
@@ -39,7 +40,7 @@ export default function EventCard({ item }) {
   //   addProductToCart,
   // } = React.useContext(cartContext);
   const { deleteEvent } = React.useContext(eventContext);
-  // console.log(addProductToCart);
+  const { isAdmin } = React.useContext(authContext);
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
   const handleExpandClick = () => {
@@ -100,7 +101,7 @@ export default function EventCard({ item }) {
         }}>
         <Button
           variant="contained"
-          color="success"
+          color="secondary"
           onClick={() => navigate(`/events/${item.id}`)}>
           Купить билет
         </Button>
@@ -109,15 +110,16 @@ export default function EventCard({ item }) {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <IconButton onClick={() => deleteEvent(item.id)}>
-          <DeleteIcon />
-        </IconButton>
-        <IconButton onClick={() => navigate(`/edit/${item.id}`)}>
-          <EditIcon />
-        </IconButton>
+        {isAdmin ? (
+          <IconButton onClick={() => deleteEvent(item.id)}>
+            <DeleteIcon />
+          </IconButton>
+        ) : null}
+        {isAdmin ? (
+          <IconButton onClick={() => navigate(`/edit/${item.id}`)}>
+            <EditIcon />
+          </IconButton>
+        ) : null}
       </CardActions>
     </Card>
   );

@@ -7,6 +7,7 @@ const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("");
   const [error, setError] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
+  // console.log(isAdmin);
   function signUp(email, password, navigate) {
     fire
       .auth()
@@ -29,11 +30,12 @@ const AuthContextProvider = ({ children }) => {
 
   function authListener() {
     fire.auth().onAuthStateChanged(user => {
-      if (user) {
+      if (currentUser) {
         // login: admin@gmail.com, password:1234567
         if (user.email === "admin@gmail.com") {
           setIsAdmin(true);
         }
+        alert("Добро пожаловать, администратор!");
         setCurrentUser(user);
       } else {
         setCurrentUser("");

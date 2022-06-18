@@ -10,7 +10,6 @@ const App = () => {
     <div>
       <Routing />
       <Footer />
-      {/* <Cart /> */}
     </div>
   );
 };

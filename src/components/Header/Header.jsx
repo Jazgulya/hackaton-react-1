@@ -19,13 +19,17 @@ import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Tab, Table } from "@mui/material";
 import { Badge } from "@mui/material";
-// import { cartContext } from "../../contexts/cartContext";
+import { useContext } from "react";
+import { authContext } from "../../contexts/authContext";
+import { useEffect } from "react";
 
-// const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Logout"];
 const Header = () => {
   // const { count } = React.useContext(cartContext);
   const navigate = useNavigate();
+  const { currentUser, logOut } = useContext(authContext);
+  // console.log(setIsAdmin);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -46,11 +50,7 @@ const Header = () => {
 
   return (
     <AppBar className="appbar" position="fixed">
-      <Container
-        className="appbar"
-        maxWidth="xl"
-        // style={{ backgroundColor: "purp" }}
-      >
+      <Container className="appbar" maxWidth="xl">
         <Toolbar>
           <img
             style={{ marginRight: "30px", cursor: "pointer" }}
@@ -90,7 +90,9 @@ const Header = () => {
                 <Typography textAlign="center">Как купить</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Войти</Typography>
+                <Typography textAlign="center">
+                  {currentUser ? "Войти" : null}
+                </Typography>
               </MenuItem>
               <IconButton>
                 <AddShoppingCartIcon />
@@ -146,7 +148,6 @@ const Header = () => {
                 <AddShoppingCartIcon />
               </Badge>
             </IconButton>
-
             <Link to="/login">
               <Button
                 onClick={handleCloseNavMenu}
@@ -156,7 +157,7 @@ const Header = () => {
                   // backgroundColor: "steelblue",
                   display: "block",
                 }}>
-                Войти
+                {!currentUser ? "Войти" : "Выйти"}
               </Button>
             </Link>
           </Box>
@@ -186,7 +187,13 @@ const Header = () => {
               onClose={handleCloseUserMenu}>
               {settings.map(setting => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Button
+                    onClick={() => {
+                      logOut();
+                      navigate("/");
+                    }}>
+                    Выйти
+                  </Button>
                 </MenuItem>
               ))}
             </Menu>
