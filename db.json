@@ -55,6 +55,14 @@
       "price": 200,
       "place": "Asia Mall",
       "id": 9
+    },
+    {
+      "photo": "https://kremlinpalace.org/images/events/1602246074.jpg",
+      "title": "\"Лебединое озеро\"",
+      "date": "26.06.22",
+      "price": 250,
+      "place": "Кыргызский театр оперы и балета им А.Малдыбаева",
+      "id": 10
     }
   ]
 }

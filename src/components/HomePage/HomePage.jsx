@@ -146,8 +146,7 @@ const HomePage = () => {
                 variant="contained"
                 color="warning"
                 margin="10px"
-                // onClick={()=> navigate()}
-              >
+                onClick={() => navigate("/events")}>
                 Узнать подробнее
               </Button>
             </CardContent>
@@ -180,7 +179,8 @@ const HomePage = () => {
                 size="small"
                 variant="contained"
                 color="warning"
-                margin="10px">
+                margin="10px"
+                onClick={() => navigate("/events")}>
                 Узнать подробнее
               </Button>
             </CardContent>
@@ -215,15 +215,14 @@ const HomePage = () => {
             }}>
             <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
               <Typography component="div" variant="h5" marginBottom="10px">
-                Сольный концерт JK
+                Выступление Миши Марвина
               </Typography>
               <Button
                 size="small"
                 variant="contained"
                 color="warning"
                 margin="10px"
-                // onClick={()=> navigate()}
-              >
+                onClick={() => navigate("/events")}>
                 Узнать подробнее
               </Button>
             </CardContent>
@@ -238,7 +237,7 @@ const HomePage = () => {
           <CardMedia
             component="img"
             sx={{ width: 151, margin: "20px" }}
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3voSygZUI3O4o-4zgbxRPT8aunr1TneBjA&usqp=CAU"
+            image="https://yt3.ggpht.com/uy_CoLzWirDf2C7BmOi_kIKOEcXmLfsB8cK2E0vliuqmPSvf_NFOobVlXDFhSk0-YtmaH54Hhw=s900-c-k-c0x00ffffff-no-rj"
             alt="Live from space album cover"
           />
         </Card>
@@ -250,13 +249,14 @@ const HomePage = () => {
             }}>
             <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
               <Typography component="div" variant="h5" marginBottom="10px">
-                Балет «Жизель»
+                "Лебединое озеро"
               </Typography>
               <Button
                 size="small"
                 variant="contained"
                 color="warning"
-                margin="10px">
+                margin="10px"
+                onClick={() => navigate("/events")}>
                 Узнать подробнее
               </Button>
             </CardContent>
@@ -271,7 +271,7 @@ const HomePage = () => {
           <CardMedia
             component="img"
             sx={{ width: 151, margin: "20px" }}
-            image="https://sxodim.com/uploads/images/2022/06/15/optimized/645b9668ee43e1df8897de2cbafcc56e_800xauto-q-85.jpg"
+            image="https://kremlinpalace.org/images/events/1602246074.jpg"
             alt="Live from space album cover"
           />
         </Card>

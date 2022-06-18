@@ -16,7 +16,6 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
-import { cartContext } from "../../contexts/cartContext";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
 
@@ -32,13 +31,13 @@ const ExpandMore = styled(props => {
 }));
 
 export default function EventCard({ item }) {
-  const {
-    getCart,
-    cart,
-    changeProductCount,
-    deleteFromCart,
-    addProductToCart,
-  } = React.useContext(cartContext);
+  // const {
+  //   getCart,
+  //   cart,
+  //   changeProductCount,
+  //   deleteFromCart,
+  //   addProductToCart,
+  // } = React.useContext(cartContext);
   const { deleteEvent } = React.useContext(eventContext);
   // console.log(addProductToCart);
   const [expanded, setExpanded] = React.useState(false);
@@ -102,7 +101,7 @@ export default function EventCard({ item }) {
         <Button
           variant="contained"
           color="success"
-          onClick={() => addProductToCart(item)}>
+          onClick={() => navigate(`/events/${item.id}`)}>
           Купить билет
         </Button>
       </Box>

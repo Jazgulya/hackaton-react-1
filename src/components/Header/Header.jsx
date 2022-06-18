@@ -12,15 +12,19 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import ShopIcon from "@mui/icons-material/Shop";
+// import ShopIcon from "@mui/icons-material/Shop";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 // import { cartContext } from "../../contexts/cartContext";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
-import Search from "@mui/icons-material/Search";
 import { Tab, Table } from "@mui/material";
+import { Badge } from "@mui/material";
+// import { cartContext } from "../../contexts/cartContext";
+
 // const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
+  // const { count } = React.useContext(cartContext);
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -89,7 +93,7 @@ const Header = () => {
                 <Typography textAlign="center">Войти</Typography>
               </MenuItem>
               <IconButton>
-                <ShopIcon />
+                <AddShoppingCartIcon />
               </IconButton>
             </Menu>
           </Box>
@@ -122,9 +126,27 @@ const Header = () => {
               }}>
               Кассы
             </Button>
-            <IconButton>
-              <ShopIcon />
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "black",
+                // backgroundColor: "steelblue",
+                display: "block",
+              }}>
+              Язык
+            </Button>
+
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+              onClick={() => navigate("/cart")}>
+              <Badge /*badgeContent={count}*/ color="error">
+                <AddShoppingCartIcon />
+              </Badge>
             </IconButton>
+
             <Link to="/login">
               <Button
                 onClick={handleCloseNavMenu}
