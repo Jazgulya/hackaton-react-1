@@ -20,7 +20,7 @@ import { cartContext } from "../../contexts/cartContext";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
 
-const ExpandMore = styled(props => {
+const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -32,13 +32,13 @@ const ExpandMore = styled(props => {
 }));
 
 export default function EventCard({ item }) {
-  const {
-    getCart,
-    cart,
-    changeProductCount,
-    deleteFromCart,
-    addProductToCart,
-  } = React.useContext(cartContext);
+  // const {
+  //   getCart,
+  //   cart,
+  //   changeProductCount,
+  //   deleteFromCart,
+  //   addProductToCart,
+  // } = React.useContext(cartContext);
   const { deleteEvent } = React.useContext(eventContext);
   // console.log(addProductToCart);
   const [expanded, setExpanded] = React.useState(false);
@@ -56,7 +56,8 @@ export default function EventCard({ item }) {
         boxShadow: "1px 2px 9px #F4AAB9",
       }}
       sx={{ maxWidth: 300 }}
-      display="flex">
+      display="flex"
+    >
       <CardHeader
         style={{ textAlign: "center", height: "50px" }}
         title={item.title}
@@ -97,11 +98,13 @@ export default function EventCard({ item }) {
           display: "flex",
           justifyContent: "flex-start",
           padding: "10px",
-        }}>
+        }}
+      >
         <Button
           variant="contained"
           color="success"
-          onClick={() => addProductToCart(item)}>
+          onClick={() => navigate(`/events/${item.id}`)}
+        >
           Купить билет
         </Button>
       </Box>

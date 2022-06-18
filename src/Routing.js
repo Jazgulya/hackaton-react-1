@@ -13,12 +13,14 @@ import Cart from "./components/Cart/Cart";
 // import Home from "./components/Home/Home";
 import CartContextProvider from "./contexts/cartContext";
 import EventsContextProvider from "./contexts/eventContext";
+import EditEvent from "./components/EditEvent/EditEvent";
+import { CartProvider } from "react-use-cart";
 
 const Routing = () => {
   return (
-    <AuthContextProvider>
-      <EventsContextProvider>
-        <CartContextProvider>
+    <CartProvider>
+      <AuthContextProvider>
+        <EventsContextProvider>
           <BrowserRouter>
             <Header />
             {/* <NavBar /> */}
@@ -30,11 +32,13 @@ const Routing = () => {
               <Route path="/events" element={<EventsList />} />;
               <Route path="/cart" element={<Cart />} />
               <Route path="/" element={<HomePage />} />
+              <Route path="/events/:id" element={<DetailsEvent />} />
+              <Route path="/edit/:id" element={<EditEvent />} />
             </Routes>
           </BrowserRouter>
-        </CartContextProvider>
-      </EventsContextProvider>
-    </AuthContextProvider>
+        </EventsContextProvider>
+      </AuthContextProvider>
+    </CartProvider>
   );
 };
 

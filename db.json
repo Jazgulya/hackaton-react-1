@@ -1,28 +1,20 @@
 {
   "events": [
     {
-      "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/b083861fd09d4e5d48e32703e1bbf88f_800xauto-q-85.jpg",
-      "title": " Антикинотеатр \"The story\"",
-      "date": "29/06/22",
-      "price": 400,
-      "place": "ул. ​Тыныстанова, 99",
-      "id": 2
-    },
-    {
-      "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/041805c9e1585cac2e88ed10d3ac0920_800xauto-q-85.jpg",
-      "title": "Картинг клуб \"Старт\"",
-      "date": "23.06.22",
-      "price": 400,
-      "place": "Парк \"Асанбай\"",
-      "id": 3
-    },
-    {
       "photo": "https://sxodim.com/uploads/images/2022/06/15/optimized/23b598ddae0e3205f4435f4a55377eed_800xauto-q-85.jpg",
       "title": "\"Toyboss Night Run\"",
       "date": "18.06.22",
       "price": 500,
       "place": "ул. ​Чокана Валиханова, 2",
       "id": 4
+    },
+    {
+      "photo": "https://fraufluger.ru/wp-content/uploads/2021/02/a778a06bc47d4987ad3401dc4359a07a.jpg",
+      "title": "Концерт",
+      "date": "19.06.2022",
+      "price": 900,
+      "place": "Филармония",
+      "id": 5
     }
   ]
 }

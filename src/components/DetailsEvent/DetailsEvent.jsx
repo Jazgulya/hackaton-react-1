@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { eventContext } from "../../contexts/eventContext";
 import { useParams } from "react-router-dom";
 
@@ -15,16 +15,23 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 import { Box, Button, Container } from "@mui/material";
+import { cartContext } from "../../contexts/cartContext";
+import { useCart } from "react-use-cart";
 
 export default function DetailsEvent() {
+  const { addItem } = useCart();
   const { getOneEvent, oneEvent } = useContext(eventContext);
+  // const { addEventToCart, checkEventInCart } = useContext(cartContext);
+  // const [checkEvent, setCheckEvent] = useState(checkEventInCart(oneEvent));
   console.log(oneEvent);
   const { id } = useParams();
   useEffect(() => {
     getOneEvent(id);
   }, []);
+  console.log(oneEvent);
 
   return oneEvent ? (
     <Container>
@@ -67,8 +74,22 @@ export default function DetailsEvent() {
           alignItems: "center",
         }}
       >
-        <Button variant="contained" color="success">
-          Купить билет
+        {/* <Button
+          variant="contained"
+          color="success"
+          onClick={() => {
+            addEventToCart(oneEvent);
+            setCheckEvent(checkEventInCart(oneEvent));
+          }}
+        >
+          <AddShoppingCartIcon color={checkEvent ? "secondary" : "primary"} />
+        </Button> */}
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => addItem(oneEvent)}
+        >
+          <AddShoppingCartIcon />
         </Button>
       </Box>
       <Card sx={{ maxWidth: 345 }}>
@@ -80,13 +101,7 @@ export default function DetailsEvent() {
           image={oneEvent.photo}
           alt="Paella dish"
         />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
-          </Typography>
-        </CardContent>
+
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
