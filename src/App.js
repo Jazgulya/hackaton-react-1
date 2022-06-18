@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import Footer from "./components/Footer/Footer";
 import Routing from "./Routing";
 import "./App.css";

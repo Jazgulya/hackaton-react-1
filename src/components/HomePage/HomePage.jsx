@@ -63,7 +63,7 @@ const HomePage = () => {
         justifyContent: "center",
         marginTop: "40px",
       }}>
-      <Typography
+      <Typography className="str1"
         style={{
           margin: "20px",
           marginTop: "40px",

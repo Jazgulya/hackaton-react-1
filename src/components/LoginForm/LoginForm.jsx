@@ -30,7 +30,7 @@ const LoginForm = () => {
       <Typography
         variant="h3"
         component="h2"
-        style={{ fontFamily: "Merriweather" }}>
+        style={{marginTop: "20px", fontFamily: "Merriweather" }}>
         Войти
       </Typography>
       {error ? <Alert severity="error">{error}</Alert> : null}

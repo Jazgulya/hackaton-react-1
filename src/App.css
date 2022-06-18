@@ -4,3 +4,16 @@
   font-family: 'Lora', serif;
 }
 
+@media (max-width: 520px){
+  .str1{
+      font-size: 20px;
+  }
+}
+
+@media (max-width: 1137px){
+  .react-calendar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+

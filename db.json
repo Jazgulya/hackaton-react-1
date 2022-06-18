@@ -1,15 +1,14 @@
 {
   "events": [
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
       "photo": "https://ticket.kg/images/items/img_flamenco_jazz1654573073.jpeg",
       "title": "FLAMENCO JAZZ",
       "date": "24.06.2022",
       "price": "1000",
       "place": "Кыргызский театр оперы и балета им А.Малдыбаева",
       "id": 11
-=======
+    },
+    {
       "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/041805c9e1585cac2e88ed10d3ac0920_800xauto-q-85.jpg",
       "title": "Картинг клуб \"Старт\"",
       "date": "23.06.22",
@@ -18,8 +17,6 @@
       "id": 3
     },
     {
-=======
->>>>>>> b63086d5920f6845eeda8d695818c05ece8105c7
       "photo": "https://sxodim.com/uploads/images/2022/06/15/optimized/23b598ddae0e3205f4435f4a55377eed_800xauto-q-85.jpg",
       "title": "\"Toyboss Night Run\"",
       "date": "18.06.22",
@@ -28,7 +25,6 @@
       "id": 4
     },
     {
-<<<<<<< HEAD
       "photo": "https://sxodim.com/uploads/images/2022/06/15/optimized/e7409f5a5a754bae629dda99d87c937e_800xauto-q-85.jpg",
       "title": "Выступление Миши Марвина",
       "date": "18 июня, 20:00",
@@ -67,15 +63,14 @@
       "price": 200,
       "place": "Asia Mall",
       "id": 9
->>>>>>> 3336371e53071ee3a953322537790d63a1b29803
-=======
+    },
+    {
       "photo": "https://fraufluger.ru/wp-content/uploads/2021/02/a778a06bc47d4987ad3401dc4359a07a.jpg",
       "title": "Концерт",
       "date": "19.06.2022",
       "price": 900,
       "place": "Филармония",
       "id": 5
->>>>>>> b63086d5920f6845eeda8d695818c05ece8105c7
     }
   ]
 }
