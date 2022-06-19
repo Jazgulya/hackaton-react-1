@@ -19,6 +19,7 @@ import { Box } from "@mui/system";
 import { cartContext } from "../../contexts/cartContext";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
+import Rating from "../Rating/Rating";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -100,6 +101,7 @@ export default function EventCard({ item }) {
           padding: "10px",
         }}
       >
+        <Rating />
         <Button
           variant="contained"
           color="success"
