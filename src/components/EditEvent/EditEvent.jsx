@@ -52,16 +52,17 @@ const EditEvent = () => {
   return oneEvent ? (
     <Container
       style={{
-        // width: "300px",
+        marginTop: "50px",
         height: "450px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
-        alignItems: "start",
+        alignItems: "center",
       }}
     >
-      <Typography variant="h4"> Edit event</Typography>
+      <Typography variant="h4">Редактировать событие</Typography>
       <TextField
+        style={{ width: "350px" }}
         value={photo}
         onChange={(e) => setPhoto(e.target.value)}
         label="Photo"
@@ -69,6 +70,7 @@ const EditEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         label="Title"
@@ -76,6 +78,7 @@ const EditEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={date}
         onChange={(e) => setDate(e.target.value)}
         label="Date"
@@ -83,6 +86,7 @@ const EditEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={price}
         onChange={(e) => setPrice(+e.target.value)}
         label="Price"
@@ -90,6 +94,7 @@ const EditEvent = () => {
         focused
       />
       <TextField
+        style={{ width: "350px" }}
         value={place}
         onChange={(e) => setPlace(e.target.value)}
         label="Place"
@@ -102,7 +107,7 @@ const EditEvent = () => {
         variant="contained"
         endIcon={<SendIcon />}
       >
-        Save changes
+        Сохранить изменения{" "}
       </Button>
     </Container>
   ) : (

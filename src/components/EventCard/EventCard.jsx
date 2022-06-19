@@ -8,7 +8,6 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -16,42 +15,21 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
-import { cartContext } from "../../contexts/cartContext";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
 import Rating from "../Rating/Rating";
-
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import { authContext } from "../../contexts/authContext";
 
 export default function EventCard({ item }) {
-  // const {
-  //   getCart,
-  //   cart,
-  //   changeProductCount,
-  //   deleteFromCart,
-  //   addProductToCart,
-  // } = React.useContext(cartContext);
   const { deleteEvent } = React.useContext(eventContext);
-  // console.log(addProductToCart);
+  const { isAdmin } = React.useContext(authContext);
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card
       style={{
-        margin: "50px",
+        margin: "35px",
         padding: "10px",
         border: "1px solid",
         boxShadow: "1px 2px 9px #F4AAB9",
@@ -104,7 +82,7 @@ export default function EventCard({ item }) {
         <Rating />
         <Button
           variant="contained"
-          color="success"
+          color="secondary"
           onClick={() => navigate(`/events/${item.id}`)}
         >
           Купить билет
@@ -114,15 +92,16 @@ export default function EventCard({ item }) {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <IconButton onClick={() => deleteEvent(item.id)}>
-          <DeleteIcon />
-        </IconButton>
-        <IconButton onClick={() => navigate(`/edit/${item.id}`)}>
-          <EditIcon />
-        </IconButton>
+        {isAdmin ? (
+          <IconButton onClick={() => deleteEvent(item.id)}>
+            <DeleteIcon />
+          </IconButton>
+        ) : null}
+        {isAdmin ? (
+          <IconButton onClick={() => navigate(`/edit/${item.id}`)}>
+            <EditIcon />
+          </IconButton>
+        ) : null}
       </CardActions>
     </Card>
   );

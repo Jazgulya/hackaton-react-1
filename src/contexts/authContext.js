@@ -11,8 +11,8 @@ const AuthContextProvider = ({ children }) => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(res => navigate("/login"))
-      .catch(err => setError(err.message));
+      .then((res) => navigate("/login"))
+      .catch((err) => setError(err.message));
   }
 
   function login(email, password, navi) {
@@ -20,7 +20,7 @@ const AuthContextProvider = ({ children }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => navi("/events"))
-      .catch(err => setError(err));
+      .catch((err) => setError(err));
   }
 
   function logOut() {
@@ -28,12 +28,12 @@ const AuthContextProvider = ({ children }) => {
   }
 
   function authListener() {
-    fire.auth().onAuthStateChanged(user => {
-      if (user) {
-        // login: admin@gmail.com, password:1234567
+    fire.auth().onAuthStateChanged((user) => {
+      if (currentUser) {
         if (user.email === "admin@gmail.com") {
           setIsAdmin(true);
         }
+        alert("Добро пожаловать, администратор!");
         setCurrentUser(user);
       } else {
         setCurrentUser("");
@@ -41,11 +41,11 @@ const AuthContextProvider = ({ children }) => {
       }
     });
   }
-  // console.log(currentUser);
   useEffect(authListener, []);
   return (
     <authContext.Provider
-      value={{ currentUser, error, isAdmin, signUp, login, logOut }}>
+      value={{ currentUser, error, isAdmin, signUp, login, logOut }}
+    >
       {children}
     </authContext.Provider>
   );

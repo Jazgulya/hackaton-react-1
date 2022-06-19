@@ -15,7 +15,9 @@ import React from "react";
 import { useCart } from "react-use-cart";
 import SendIcon from "@mui/icons-material/Send";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
+  const navigate = useNavigate();
   const {
     isEmpty,
     totalUniqueItems,
@@ -45,6 +47,7 @@ const Cart = () => {
               <TableCell>Price</TableCell>
               <TableCell>Quantity</TableCell>
               <TableCell>Edit Quantity</TableCell>
+              <TableCell>Delete </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -78,7 +81,7 @@ const Cart = () => {
                       variant="contained"
                       color="success"
                       style={{
-                        margin: "20px",
+                        marginLeft: "20px",
                         width: "5px",
                         height: "30px",
                       }}
@@ -88,11 +91,12 @@ const Cart = () => {
                     >
                       +
                     </Button>
+                  </TableCell>
+                  <TableCell>
                     <Button
                       variant="contained"
                       color="error"
                       style={{
-                        margin: "20px",
                         width: "5px",
                         height: "30px",
                       }}
@@ -107,20 +111,34 @@ const Cart = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <div>
+      <Box
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
+          margin: "15px",
+        }}
+      >
         {" "}
         <h2>Total Price : {cartTotal} </h2>
-      </div>
-      <Button variant="contained" endIcon={<SendIcon />}>
-        Buy Now
-      </Button>
-      <Button
-        onClick={() => emptyCart()}
-        variant="outlined"
-        startIcon={<DeleteIcon />}
-      >
-        Clear Cart
-      </Button>
+        <Box style={{ display: "flex", marginTop: "30px" }}>
+          <Button
+            onClick={() => navigate("/payment")}
+            variant="contained"
+            endIcon={<SendIcon />}
+            style={{ marginRight: "15px" }}
+          >
+            Купить сейчас
+          </Button>
+          <Button
+            onClick={() => emptyCart()}
+            variant="outlined"
+            startIcon={<DeleteIcon />}
+          >
+            Очистить корзину{" "}
+          </Button>
+        </Box>
+      </Box>
     </Container>
   );
 };

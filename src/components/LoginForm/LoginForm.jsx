@@ -8,7 +8,6 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const { login, error } = useContext(authContext);
   const navi = useNavigate();
-  //   console.log(login);
 
   function handleValues() {
     if (!email || !password) {
@@ -21,23 +20,25 @@ const LoginForm = () => {
 
   return (
     <Box
-      margin={"20px"}
+      margin={"50px"}
       display={"flex"}
       flexDirection={"column"}
       alignItems={"center"}
       justifyContent={"center"}
-      height={"60vh"}>
+      height={"60vh"}
+    >
       <Typography
         variant="h3"
         component="h2"
-        style={{ fontFamily: "Merriweather" }}>
+        style={{ fontFamily: "Merriweather" }}
+      >
         Войти
       </Typography>
       {error ? <Alert severity="error">{error}</Alert> : null}
 
       <TextField
         value={email}
-        onChange={e => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)}
         style={{ width: "30%", margin: "10px" }}
         id="outlined-basic"
         label="E-mail"
@@ -46,7 +47,7 @@ const LoginForm = () => {
 
       <TextField
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
         style={{ width: "30%", margin: "10px" }}
         id="outlined-basic"
         label="Password"
@@ -56,7 +57,8 @@ const LoginForm = () => {
       <Button
         onClick={handleValues}
         style={{ width: "30%", margin: "10px" }}
-        variant="contained">
+        variant="contained"
+      >
         Войти
       </Button>
       <Typography variant="p" component="h2">
@@ -67,7 +69,8 @@ const LoginForm = () => {
         variant="p"
         color={"primary"}
         component="h2"
-        style={{ cursor: "pointer" }}>
+        style={{ cursor: "pointer" }}
+      >
         Зарегистрироваться
       </Typography>
     </Box>

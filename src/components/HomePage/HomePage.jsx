@@ -2,16 +2,12 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Container,
-  IconButton,
   ImageList,
   ImageListItem,
   ImageListItemBar,
-  Tab,
-  Tabs,
   Typography,
 } from "@mui/material";
 import React, { useEffect } from "react";
@@ -61,13 +57,13 @@ const HomePage = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        marginTop: "40px",
       }}
     >
       <Typography
         style={{
           margin: "30px",
           fontSize: "35px",
-          // fontWeight: "1800px",
           textAlign: "center",
           fontFamily: "Merriweather",
         }}
@@ -150,7 +146,7 @@ const HomePage = () => {
                 variant="contained"
                 color="warning"
                 margin="10px"
-                // onClick={()=> navigate()}
+                onClick={() => navigate("/events")}
               >
                 Узнать подробнее
               </Button>
@@ -187,6 +183,7 @@ const HomePage = () => {
                 variant="contained"
                 color="warning"
                 margin="10px"
+                onClick={() => navigate("/events")}
               >
                 Узнать подробнее
               </Button>
@@ -204,6 +201,89 @@ const HomePage = () => {
             component="img"
             sx={{ width: 151, margin: "20px" }}
             image="https://sxodim.com/uploads/images/2022/06/15/optimized/645b9668ee43e1df8897de2cbafcc56e_800xauto-q-85.jpg"
+            alt="Live from space album cover"
+          />
+        </Card>
+      </Container>
+      <Container
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          margin: "40px 0 40px 0",
+        }}
+      >
+        <Card data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "grey",
+            }}
+          >
+            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
+              <Typography component="div" variant="h5" marginBottom="10px">
+                Выступление Миши Марвина
+              </Typography>
+              <Button
+                size="small"
+                variant="contained"
+                color="warning"
+                margin="10px"
+                onClick={() => navigate("/events")}
+              >
+                Узнать подробнее
+              </Button>
+            </CardContent>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                pl: 1,
+                pb: 1,
+              }}
+            ></Box>
+          </Box>
+          <CardMedia
+            component="img"
+            sx={{ width: 151, margin: "20px" }}
+            image="https://yt3.ggpht.com/uy_CoLzWirDf2C7BmOi_kIKOEcXmLfsB8cK2E0vliuqmPSvf_NFOobVlXDFhSk0-YtmaH54Hhw=s900-c-k-c0x00ffffff-no-rj"
+            alt="Live from space album cover"
+          />
+        </Card>
+        <Card data-aos="fade-left" sx={{ display: "flex", maxWidth: "500px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
+              <Typography component="div" variant="h5" marginBottom="10px">
+                "Лебединое озеро"
+              </Typography>
+              <Button
+                size="small"
+                variant="contained"
+                color="warning"
+                margin="10px"
+                onClick={() => navigate("/events")}
+              >
+                Узнать подробнее
+              </Button>
+            </CardContent>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                pl: 1,
+                pb: 1,
+              }}
+            ></Box>
+          </Box>
+          <CardMedia
+            component="img"
+            sx={{ width: 151, margin: "20px" }}
+            image="https://kremlinpalace.org/images/events/1602246074.jpg"
             alt="Live from space album cover"
           />
         </Card>

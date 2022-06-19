@@ -12,19 +12,17 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-// import ShopIcon from "@mui/icons-material/Shop";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-// import { cartContext } from "../../contexts/cartContext";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
-import Search from "@mui/icons-material/Search";
 import { Badge } from "@mui/material";
-// import { cartContext } from "../../contexts/cartContext";
-// const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { useContext } from "react";
+import { authContext } from "../../contexts/authContext";
+
+const settings = ["Logout"];
 const Header = () => {
-  // const { count } = React.useContext(cartContext);
   const navigate = useNavigate();
+  const { currentUser, logOut } = useContext(authContext);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -45,26 +43,14 @@ const Header = () => {
 
   return (
     <AppBar className="appbar" position="fixed">
-      <Container
-        className="appbar"
-        maxWidth="xl"
-        style={{ backgroundColor: "white" }}
-      >
+      <Container className="appbar" maxWidth="xl">
         <Toolbar>
           <img
-            style={{ marginRight: "30px" }}
+            style={{ marginRight: "30px", cursor: "pointer" }}
             src={"https://ticket.kg/images/logo.svg"}
             alt="logo"
             onClick={() => navigate("/")}
           />
-          <Box style={{ marginRight: "30px", color: "black" }}>
-            <Typography id="number-1" variant="h6" component="h2">
-              +996 (501) 50-05-00
-            </Typography>
-            <Typography id="number-2" variant="h6" component="h2">
-              +996 (555) 42-40-04
-            </Typography>
-          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -99,16 +85,9 @@ const Header = () => {
                 <Typography textAlign="center">Как купить</Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Новости</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Кассы</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Язык</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Войти</Typography>
+                <Typography textAlign="center">
+                  {currentUser ? "Войти" : null}
+                </Typography>
               </MenuItem>
               <IconButton>
                 <AddShoppingCartIcon />
@@ -117,37 +96,29 @@ const Header = () => {
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Box
-            style={{ display: "flex", justifyContent: "space-evenly" }}
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              padding: "0 20px 0 20px",
+            }}
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
           >
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={() => navigate("/events")}
               sx={{
                 my: 2,
                 color: "black",
-                // backgroundColor: "steelblue",
                 display: "block",
               }}
             >
-              Как купить?
+              Все события
             </Button>
+
             <Button
               onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
                 color: "black",
-                // backgroundColor: "steelblue",
-                display: "block",
-              }}
-            >
-              Новости
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "black",
-                // backgroundColor: "steelblue",
                 display: "block",
               }}
             >
@@ -158,7 +129,6 @@ const Header = () => {
               sx={{
                 my: 2,
                 color: "black",
-                // backgroundColor: "steelblue",
                 display: "block",
               }}
             >
@@ -175,18 +145,16 @@ const Header = () => {
                 <AddShoppingCartIcon />
               </Badge>
             </IconButton>
-
             <Link to="/login">
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
                   color: "black",
-                  // backgroundColor: "steelblue",
                   display: "block",
                 }}
               >
-                Войти
+                {!currentUser ? "Войти" : "Выйти"}
               </Button>
             </Link>
           </Box>
@@ -217,7 +185,14 @@ const Header = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Button
+                    onClick={() => {
+                      logOut();
+                      navigate("/");
+                    }}
+                  >
+                    Выйти
+                  </Button>
                 </MenuItem>
               ))}
             </Menu>
