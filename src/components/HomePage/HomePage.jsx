@@ -109,8 +109,8 @@ const HomePage = () => {
       variant="h5" margin={"20px"}>
         Ближайшие мероприятия
       </Typography>
-      <Box display={"flex"} margin={"20px"} justifyContent="space-between">
-        <ImageList sx={{ width: 700, height: 350 }}>
+      <Box className="box_hp" display={"flex"} margin={"20px"} justifyContent="space-between">
+        <ImageList className="image_list" sx={{ width: 700, height: 350 }}>
           {itemData.map(item => (
             <ImageListItem key={item.img}>
               <img
@@ -125,15 +125,19 @@ const HomePage = () => {
             </ImageListItem>
           ))}
         </ImageList>
-        <Calendar md={{display: "flex", maxWidth: "100px"}} className="react-calendar" />
+        <Calendar className="calendar" md={{display: "flex", maxWidth: "100px"}} />
       </Box>
-      <Container
+
+
+      <Container className="box_hp2"
         style={{
           display: "flex",
           justifyContent: "space-between",
           margin: "40px 0 40px 0",
         }}>
-        <Card data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}
+
+
+        <Card className="card_hp" data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}
         md={{display: "flex", maxWidth: "200px"}}>
           <Box
             sx={{
@@ -143,12 +147,12 @@ const HomePage = () => {
             }}
             md={{display: "flex", maxWidth: "200px"}}>
             
-            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}
+            <CardContent className="card_edit" sx={{ flex: "1 0 auto", margin: "10px" }}
             md={{display: "flex", maxWidth: "100px"}}>
-              <Typography component="div" variant="h5" marginBottom="10px">
+              <Typography className="tx_edit" component="div" variant="h5" marginBottom="10px">
                 Сольный концерт JK
               </Typography>
-              <Button sm={{fontSize: "10px"}}
+              <Button className="btn_card" sm={{fontSize: "10px"}}
                 size="small"
                 variant="contained"
                 color="warning"
@@ -165,24 +169,25 @@ const HomePage = () => {
                 pb: 1,
               }}></Box>
           </Box>
-          <CardMedia
+          <CardMedia className="card_img"
             component="img"
             sx={{ width: 151, margin: "20px" }}
             image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3voSygZUI3O4o-4zgbxRPT8aunr1TneBjA&usqp=CAU"
             alt="Live from space album cover"
           />
         </Card>
-        <Card data-aos="fade-left" sx={{ display: "flex", maxWidth: "500px" }}>
+
+        <Card className="card_hp" data-aos="fade-left" sx={{ display: "flex", maxWidth: "500px" }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
             }}>
-            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
-              <Typography component="div" variant="h5" marginBottom="10px">
+            <CardContent className="card_edit" sx={{ flex: "1 0 auto", margin: "10px" }}>
+              <Typography className="tx_edit" component="div" variant="h5" marginBottom="10px">
                 Балет «Жизель»
               </Typography>
-              <Button
+              <Button className="btn_card"
                 size="small"
                 variant="contained"
                 color="warning"
@@ -199,32 +204,33 @@ const HomePage = () => {
                 pb: 1,
               }}></Box>
           </Box>
-          <CardMedia
+          <CardMedia className="card_img"
             component="img"
             sx={{ width: 151, margin: "20px" }}
             image="https://sxodim.com/uploads/images/2022/06/15/optimized/645b9668ee43e1df8897de2cbafcc56e_800xauto-q-85.jpg"
             alt="Live from space album cover"
           />
         </Card>
+
       </Container>
-      <Container
+      <Container className="box_hp2"
         style={{
           display: "flex",
           justifyContent: "space-between",
           margin: "40px 0 40px 0",
         }}>
-        <Card data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}>
+        <Card className="card_hp" data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               backgroundColor: "grey",
             }}>
-            <CardContent sx={{ flex: "1 0 auto", margin: "10px"}}>
-              <Typography component="div" variant="h5" marginBottom="10px">
+            <CardContent className="card_edit" sx={{ flex: "1 0 auto", margin: "10px"}}>
+              <Typography className="tx_edit" component="div" variant="h5" marginBottom="10px">
                 Выступление Миши Марвина
               </Typography>
-              <Button
+              <Button className="btn_card"
                 size="small"
                 variant="contained"
                 color="warning"
@@ -241,24 +247,25 @@ const HomePage = () => {
                 pb: 1,
               }}></Box>
           </Box>
-          <CardMedia
+          <CardMedia className="card_img"
             component="img"
             sx={{ width: 151, margin: "20px" }}
             image="https://yt3.ggpht.com/uy_CoLzWirDf2C7BmOi_kIKOEcXmLfsB8cK2E0vliuqmPSvf_NFOobVlXDFhSk0-YtmaH54Hhw=s900-c-k-c0x00ffffff-no-rj"
             alt="Live from space album cover"
           />
         </Card>
-        <Card data-aos="fade-left" sx={{ display: "flex", maxWidth: "500px" }}>
+
+        <Card className="card_hp" data-aos="fade-left" sx={{ display: "flex", maxWidth: "500px" }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
             }}>
-            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
-              <Typography component="div" variant="h5" marginBottom="10px">
+            <CardContent className="card_edit" sx={{ flex: "1 0 auto", margin: "10px" }}>
+              <Typography className="tx_edit" component="div" variant="h5" marginBottom="10px">
                 "Лебединое озеро"
               </Typography>
-              <Button
+              <Button className="btn_card"
                 size="small"
                 variant="contained"
                 color="warning"
@@ -275,7 +282,7 @@ const HomePage = () => {
                 pb: 1,
               }}></Box>
           </Box>
-          <CardMedia
+          <CardMedia className="card_img"
             component="img"
             sx={{ width: 151, margin: "20px" }}
             image="https://kremlinpalace.org/images/events/1602246074.jpg"

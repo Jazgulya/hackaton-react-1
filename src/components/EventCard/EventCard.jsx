@@ -18,6 +18,7 @@ import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { eventContext } from "../../contexts/eventContext";
 import { useNavigate } from "react-router-dom";
+import "./EventCard.css"
 // import { cartContext } from "../../contexts/cartContext";
 
 
@@ -49,7 +50,8 @@ export default function EventCard({ item }) {
   };
 
   return (
-    <Card
+    <Box lassName="event_card">
+    <Card className="edit_card"
       style={{
         margin: "35px",
         padding: "10px",
@@ -63,7 +65,7 @@ export default function EventCard({ item }) {
         style={{ textAlign: "center", height: "50px" }}
         title={item.title}
       />
-      <CardMedia
+      <CardMedia className="edit_photo"
         style={{
           objectFit: "fill",
           boxShadow: "1px 2px 9px #F4AAB9",
@@ -100,7 +102,7 @@ export default function EventCard({ item }) {
           justifyContent: "flex-start",
           padding: "10px",
         }}>
-        <Button
+        <Button className="edit_btn"
           variant="contained"
           color="success"
           onClick={() => navigate(`/events/${item.id}`)}>
@@ -122,5 +124,6 @@ export default function EventCard({ item }) {
         </IconButton>
       </CardActions>
     </Card>
+    </Box>
   );
 }

@@ -106,4 +106,32 @@
     visibility: hidden;
     pointer-events: none;
     transition: all 0.3s ease 0s;  }
+
+    .logo {
+      max-width: 70px;
+    }
+
+    .appbar{
+      max-height: 65px;
+      max-width: 100%;
+    }
+
+    .box_header{
+      font-size: 5px;
+    }
+
+    /* .btn_hd {
+      font-size: 5px;
+      max-width: 9px;
+    } */
+
+    .icon {
+      max-width: 15px;
+    }
+
+    .btn_log-in {
+      max-width: 40px;
+      max-height: 25px;
+      font-size: 5px;
+    }
 }

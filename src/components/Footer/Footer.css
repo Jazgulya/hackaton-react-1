@@ -8,3 +8,11 @@
     rgba(252, 70, 107, 0.7707457983193278) 99%
   );
 }
+
+@media (max-width: 635px){
+  .footer_text{
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}

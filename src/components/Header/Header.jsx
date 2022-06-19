@@ -50,7 +50,7 @@ const Header = () => {
         // style={{ backgroundColor: "purp" }}
       >
         <Toolbar>
-          <img
+          <img className="logo"
             style={{ marginRight: "30px", cursor: "pointer" }}
             src={"https://ticket.kg/images/logo.svg"}
             alt="logo"
@@ -64,7 +64,7 @@ const Header = () => {
               padding: "0 20px 0 20px",
             }}
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
+            <Button className="btn_hd"
               onClick={() => navigate("/events")}
               sx={{
                 my: 2,
@@ -102,7 +102,7 @@ const Header = () => {
               color="inherit"
               onClick={() => navigate("/cart")}>
               <Badge /*badgeContent={count}*/ color="error">
-                <AddShoppingCartIcon />
+                <AddShoppingCartIcon className="icon" />
               </Badge>
             </IconButton>
 
@@ -121,8 +121,8 @@ const Header = () => {
             {/* <MenuIcon className="menu_icon"/> */}
           </div>
 
-          <nav className="menu_body">
-            {/* <MenuIcon /> */}
+          {/* <nav className="menu_body">
+            <MenuIcon />
             <span className="menu_arrow"></span>
             <ul className="menu_sub-list">
             <li>
@@ -142,12 +142,11 @@ const Header = () => {
               aria-label="show 17 new notifications"
               color="inherit"
               onClick={() => navigate("/cart")}>
-              <Badge /*badgeContent={count}*/ color="error">
                 <AddShoppingCartIcon />
               </Badge>
             </IconButton>
           </ul>
-          </nav>
+          </nav> */}
 
 
         </Toolbar>

@@ -3,6 +3,8 @@ import { styled, alpha } from "@mui/material/styles";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import InputBase from "@mui/material/InputBase";
 import { Box, Input, Slider, TextField, Typography } from "@mui/material";
+import { Container } from "@mui/system";
+import "./Filters.css"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -51,13 +53,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Filters = ({ search, setSearch, price, setPrice }) => {
   return (
     <>
-      <div
+      <Container className="box_filter"
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          // justifyContent: "space-between",
           marginTop: "30px",
         }}>
-        <Search
+          <Box>
+        <Search className="search"
           style={{
             display: "flex",
             width: "400px",
@@ -91,7 +94,9 @@ const Filters = ({ search, setSearch, price, setPrice }) => {
             />
           </SearchIconWrapper>
         </Search>
-        <Box
+        </Box>
+
+        <Box className="filter"
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -140,7 +145,7 @@ const Filters = ({ search, setSearch, price, setPrice }) => {
             size="small"
           />
         </Box>
-      </div>
+      </Container>
       <Typography variant="h4" marginLeft="20px">
         События Бишкека для вас
       </Typography>

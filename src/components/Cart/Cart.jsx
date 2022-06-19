@@ -16,6 +16,8 @@ import { useCart } from "react-use-cart";
 import SendIcon from "@mui/icons-material/Send";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
+import "./Cart.css"
+
 const Cart = () => {
   const navigate = useNavigate();
   const {
@@ -37,7 +39,7 @@ const Cart = () => {
     );
 
   return (
-    <Container style={{ margin: "40px" }}>
+    <Container className="cart" style={{ margin: "40px" }}>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -56,13 +58,13 @@ const Cart = () => {
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                   <TableCell>
-                    <img src={item.photo} style={{ height: "6rem" }} />
+                    <img className="photo" src={item.photo} style={{ height: "6rem" }} />
                   </TableCell>
                   <TableCell>{item.title}</TableCell>
                   <TableCell>{item.price}</TableCell>
                   <TableCell> {item.quantity}</TableCell>
                   <TableCell>
-                    <Button
+                    <Button className="btn_cart"
                       variant="contained"
                       color="success"
                       style={{
@@ -74,7 +76,7 @@ const Cart = () => {
                       }>
                       -
                     </Button>
-                    <Button
+                    <Button className="btn_cart"
                       variant="contained"
                       color="success"
                       style={{
@@ -87,7 +89,7 @@ const Cart = () => {
                       }>
                       +
                     </Button>
-                    <Button
+                    <Button className="btn_cart"
                       variant="contained"
                       color="error"
                       style={{
@@ -109,13 +111,13 @@ const Cart = () => {
         {" "}
         <h2>Total Price : {cartTotal} </h2>
       </div>
-      <Button
+      <Button className="btn_buy"
         onClick={() => navigate("/payment")}
         variant="contained"
         endIcon={<SendIcon />}>
         Купить сейчас
       </Button>
-      <Button
+      <Button className="btn_buy"
         onClick={() => emptyCart()}
         variant="outlined"
         startIcon={<DeleteIcon />}>

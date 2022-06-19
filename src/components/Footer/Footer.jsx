@@ -14,7 +14,7 @@ const Footer = () => {
           py={{ xs: 5, sm: 10 }}
           bgcolor="text.secondary"
           color="white">
-          <Container maxWidth="lg" height="100px">
+          <Container className="footer_text" maxWidth="lg" height="100px">
             <Grid container spacing={5}>
               <Grid item xs={12} sm={3}>
                 <Box>О нас</Box>

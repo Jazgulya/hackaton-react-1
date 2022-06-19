@@ -12,9 +12,11 @@ import Cart from "./components/Cart/Cart";
 import EventsContextProvider from "./contexts/eventContext";
 import EditEvent from "./components/EditEvent/EditEvent";
 import Payment from "./components/Cart/Payment";
+import { CartProvider } from "react-use-cart";
 
 const Routing = () => {
   return (
+    <CartProvider >
     <AuthContextProvider>
       <EventsContextProvider>
         <BrowserRouter>
@@ -33,7 +35,8 @@ const Routing = () => {
         </BrowserRouter>
       </EventsContextProvider>
     </AuthContextProvider>
-  );
+    </CartProvider>
+    );
 };
 
 export default Routing;

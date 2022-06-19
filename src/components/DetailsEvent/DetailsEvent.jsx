@@ -20,6 +20,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Box, Button, Container } from "@mui/material";
 // import { cartContext } from "../../contexts/cartContext";
 import { useCart } from "react-use-cart";
+import "./DetailsEvent.css"
 
 export default function DetailsEvent() {
   const { addItem } = useCart();
@@ -78,17 +79,17 @@ export default function DetailsEvent() {
         >
           <AddShoppingCartIcon color={checkEvent ? "secondary" : "primary"} />
         </Button> */}
-        <Button sx={{margin:"10px"}}
+        <Button className="dt_btn" sx={{margin:"10px"}}
           variant="contained"
           color="success"
           onClick={() => addItem(oneEvent)}>
-          <AddShoppingCartIcon />
+          <AddShoppingCartIcon className="dt_icon" />
         </Button>
       </Box>
-      <Card sx={{ maxWidth: 345, marginBottom:"30px" }}>
+      <Card className="dt_card" sx={{ maxWidth: 345, marginBottom:"30px" }}>
         {/* <CardHeader title= subheader={oneEvent.date} /> */}
 
-        <CardMedia sx={{margin:"15px"}}
+        <CardMedia className="dt_photo" sx={{margin:"15px"}}
           component="img"
           height="80%"
           image={oneEvent.photo}
