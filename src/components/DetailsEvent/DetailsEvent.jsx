@@ -34,19 +34,17 @@ export default function DetailsEvent() {
   console.log(oneEvent);
 
   return oneEvent ? (
-    <Container>
+    <Container sx={{display: "flex", flexDirection:"column", alignItems:"center"}}>
       <Box>
-        <Typography
-          style={{ textAlign: "center", margin: "15px" }}
-          variant="h4">
-          {oneEvent.title}{" "}
+        <Typography style={{ textAlign: "center", margin: "30px" }} variant="body2" color="text.secondary">
+          {oneEvent.title}
         </Typography>
       </Box>
       <Box
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}>
         <LocationOnIcon />
         <Typography variant="body2" color="text.secondary">
@@ -80,30 +78,35 @@ export default function DetailsEvent() {
         >
           <AddShoppingCartIcon color={checkEvent ? "secondary" : "primary"} />
         </Button> */}
-        <Button
+        <Button sx={{margin:"10px"}}
           variant="contained"
           color="success"
           onClick={() => addItem(oneEvent)}>
           <AddShoppingCartIcon />
         </Button>
       </Box>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, marginBottom:"30px" }}>
         {/* <CardHeader title= subheader={oneEvent.date} /> */}
 
-        <CardMedia
+        <CardMedia sx={{margin:"15px"}}
           component="img"
           height="80%"
           image={oneEvent.photo}
           alt="Paella dish"
-        />
+        ></CardMedia>
 
-        <CardActions disableSpacing>
+        <CardActions disableSpacing sx={{display: "flex", flexDirection:"column"}}>
+        <Typography sx={{fontSize:"20px"}}>
+          {oneEvent.title}
+        </Typography>
+        <span sx={{display:'flex', position:"absolute left: 5px"}}>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
+        </span>
         </CardActions>
       </Card>
     </Container>

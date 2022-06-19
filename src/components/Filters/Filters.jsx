@@ -62,7 +62,7 @@ const Filters = ({ search, setSearch, price, setPrice }) => {
             display: "flex",
             width: "400px",
             height: "42px",
-            margin: "20px",
+            margin: "45px",
             paddingLeft: "15px",
             borderRadius: "50px",
             border: "2px solid blue",
@@ -97,16 +97,16 @@ const Filters = ({ search, setSearch, price, setPrice }) => {
             justifyContent: "space-between",
             border: "3px solid blue",
             borderRadius: "10px",
-            width: "650px",
-            margin: "10px",
+            width: "660px",
+            margin: "40px",
             padding: "10px",
           }}>
-          <Typography variant="h7" marginTop="10px">
+          <Typography variant="h7" marginTop="15px">
             Фильтровать по цене:
           </Typography>
           <Slider
             style={{
-              width: "40%",
+              width: "30%",
               display: "flex",
               justifyContent: "center",
               marginTop: "10px",

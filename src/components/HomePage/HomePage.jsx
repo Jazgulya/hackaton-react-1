@@ -220,7 +220,7 @@ const HomePage = () => {
               flexDirection: "column",
               backgroundColor: "grey",
             }}>
-            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
+            <CardContent sx={{ flex: "1 0 auto", margin: "10px"}}>
               <Typography component="div" variant="h5" marginBottom="10px">
                 Выступление Миши Марвина
               </Typography>
