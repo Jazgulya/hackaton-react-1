@@ -22,6 +22,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -71,7 +72,8 @@ const HomePage = () => {
           fontWeight: "bold",
           textAlign: "center",
           fontFamily: "Merriweather",
-        }}>
+        }}
+        sm={{fontSize:"10px"}}>
         Покупай билеты на интересные мероприятия онлайн!
       </Typography>
       <Container>
@@ -103,7 +105,7 @@ const HomePage = () => {
           Актуальные события в Бишкеке
         </Typography>
       </Container>
-      <Typography
+      <Typography sm={{fontSize: "10px"}}
       variant="h5" margin={"20px"}>
         Ближайшие мероприятия
       </Typography>
@@ -123,7 +125,7 @@ const HomePage = () => {
             </ImageListItem>
           ))}
         </ImageList>
-        <Calendar className="react-calendar" />
+        <Calendar md={{display: "flex", maxWidth: "100px"}} className="react-calendar" />
       </Box>
       <Container
         style={{
@@ -131,18 +133,22 @@ const HomePage = () => {
           justifyContent: "space-between",
           margin: "40px 0 40px 0",
         }}>
-        <Card data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}>
+        <Card data-aos="fade-right" sx={{ display: "flex", maxWidth: "500px" }}
+        md={{display: "flex", maxWidth: "200px"}}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               backgroundColor: "grey",
-            }}>
-            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}>
+            }}
+            md={{display: "flex", maxWidth: "200px"}}>
+            
+            <CardContent sx={{ flex: "1 0 auto", margin: "10px" }}
+            md={{display: "flex", maxWidth: "100px"}}>
               <Typography component="div" variant="h5" marginBottom="10px">
                 Сольный концерт JK
               </Typography>
-              <Button
+              <Button sm={{fontSize: "10px"}}
                 size="small"
                 variant="contained"
                 color="warning"

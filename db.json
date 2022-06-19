@@ -1,17 +1,6 @@
 {
   "events": [
     {
-<<<<<<< HEAD
-      "photo": "https://ticket.kg/images/items/img_flamenco_jazz1654573073.jpeg",
-      "title": "FLAMENCO JAZZ",
-      "date": "24.06.2022",
-      "price": "1000",
-      "place": "Кыргызский театр оперы и балета им А.Малдыбаева",
-      "id": 11
-    },
-    {
-=======
->>>>>>> f69ccf9b89414225bac931b3efa44832dc588e2f
       "photo": "https://sxodim.com/uploads/images/2022/02/28/optimized/041805c9e1585cac2e88ed10d3ac0920_800xauto-q-85.jpg",
       "title": "Картинг клуб \"Старт\"",
       "date": "23.06.22",
@@ -68,21 +57,12 @@
       "id": 9
     },
     {
-<<<<<<< HEAD
-      "photo": "https://fraufluger.ru/wp-content/uploads/2021/02/a778a06bc47d4987ad3401dc4359a07a.jpg",
-      "title": "Концерт",
-      "date": "19.06.2022",
-      "price": 900,
-      "place": "Филармония",
-      "id": 5
-=======
       "photo": "https://kremlinpalace.org/images/events/1602246074.jpg",
       "title": "\"Лебединое озеро\"",
       "date": "26.06.22",
       "price": 250,
       "place": "Кыргызский театр оперы и балета им А.Малдыбаева",
       "id": 10
->>>>>>> f69ccf9b89414225bac931b3efa44832dc588e2f
     }
   ]
 }
