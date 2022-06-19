@@ -18,6 +18,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -62,7 +63,8 @@ const HomePage = () => {
     >
       <Typography
         style={{
-          margin: "30px",
+          margin: "20px",
+          marginTop: "40px",
           fontSize: "35px",
           textAlign: "center",
           fontFamily: "Merriweather",
@@ -92,6 +94,7 @@ const HomePage = () => {
           />
         </Carousel>
         <Typography
+          className="development"
           variant="h4"
           fontWeight="300px"
           textAlign="center"
@@ -100,7 +103,7 @@ const HomePage = () => {
           Актуальные события в Бишкеке
         </Typography>
       </Container>
-      <Typography variant="h5" margin={"20px"}>
+      <Typography sm={{ fontSize: "10px" }} variant="h5" margin={"20px"}>
         Ближайшие мероприятия
       </Typography>
       <Box display={"flex"} margin={"20px"} justifyContent="space-between">
@@ -119,9 +122,11 @@ const HomePage = () => {
             </ImageListItem>
           ))}
         </ImageList>
-        <Calendar className="react-calendar" />
+        <Calendar
+          md={{ display: "flex", maxWidth: "100px" }}
+          className="react-calendar"
+        />
       </Box>
-      ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       <Container
         style={{
           display: "flex",
@@ -142,6 +147,7 @@ const HomePage = () => {
                 Сольный концерт JK
               </Typography>
               <Button
+                sm={{ fontSize: "10px" }}
                 size="small"
                 variant="contained"
                 color="warning"

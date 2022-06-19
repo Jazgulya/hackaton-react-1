@@ -1,3 +1,8 @@
+import React from "react";
+import { useCart } from "react-use-cart";
+import SendIcon from "@mui/icons-material/Send";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -11,11 +16,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import React from "react";
-import { useCart } from "react-use-cart";
-import SendIcon from "@mui/icons-material/Send";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
   const navigate = useNavigate();
   const {
@@ -25,19 +26,27 @@ const Cart = () => {
     updateItemQuantity,
     removeItem,
     cartTotal,
+    totalItems,
     emptyCart,
   } = useCart();
 
   if (isEmpty)
     return (
-      <Typography style={{ margin: "40px" }} variant="h5">
+      <Typography
+        style={{ marginTop: "80px", marginBottom: "20px", textAlign: "center" }}
+        variant="h5"
+      >
         {" "}
         Ваша корзина пуста
       </Typography>
     );
 
   return (
-    <Container style={{ margin: "40px" }}>
+    <Container style={{ marginTop: "100px" }}>
+      <Typography style={{ textAlign: "center", fontSize: "30px" }}>
+        {" "}
+        Ваша корзина
+      </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -116,11 +125,13 @@ const Cart = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-end",
-          margin: "15px",
+          margin: "30px",
         }}
       >
         {" "}
-        <h2>Total Price : {cartTotal} </h2>
+        <h2>Количество событий {totalUniqueItems}</h2>
+        <h2> Количество билетов: {totalItems}</h2>
+        <h2>Общая сумма : {cartTotal} </h2>
         <Box style={{ display: "flex", marginTop: "30px" }}>
           <Button
             onClick={() => navigate("/payment")}

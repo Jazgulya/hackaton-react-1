@@ -23,7 +23,6 @@ import { authContext } from "../../contexts/authContext";
 export default function EventCard({ item }) {
   const { deleteEvent } = React.useContext(eventContext);
   const { isAdmin } = React.useContext(authContext);
-  const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
 
   return (

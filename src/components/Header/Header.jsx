@@ -18,9 +18,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "@mui/material";
 import { useContext } from "react";
 import { authContext } from "../../contexts/authContext";
+import { useCart } from "react-use-cart";
 
 const settings = ["Logout"];
 const Header = () => {
+  const { totalItems } = useCart();
   const navigate = useNavigate();
   const { currentUser, logOut } = useContext(authContext);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -141,13 +143,13 @@ const Header = () => {
               color="inherit"
               onClick={() => navigate("/cart")}
             >
-              <Badge /*badgeContent={count}*/ color="error">
+              <Badge badgeContent={totalItems} color="error">
                 <AddShoppingCartIcon />
               </Badge>
             </IconButton>
             <Link to="/login">
               <Button
-                onClick={handleCloseNavMenu}
+                className="btn_log-in"
                 sx={{
                   my: 2,
                   color: "black",

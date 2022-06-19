@@ -29,72 +29,49 @@ export default function DetailsEvent() {
 
   return oneEvent ? (
     <Container>
-      <Box style={{ marginTop: "90px" }}>
-        <Typography
-          style={{ textAlign: "center", margin: "15px" }}
-          variant="h4"
-        >
-          {oneEvent.title}{" "}
-        </Typography>
-      </Box>
-      <Box>
-        <FcLeave size={42} />
-        {oneEvent.date}
-      </Box>
-      <Box
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+      <Typography
+        style={{ textAlign: "center", marginTop: "90px", marginBottom: "30px" }}
+        variant="h4"
       >
-        <LocationOnIcon />
-        <Typography variant="body2" color="text.secondary">
-          {oneEvent.place}
-        </Typography>
-        {/* </Box>
-      <Box
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      > */}
-        <CurrencyRubleIcon />
-        <Typography variant="body2" color="text.secondary">
-          {oneEvent.price}
-        </Typography>
-      </Box>
-      <Box
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Button
-          variant="contained"
-          color="success"
-          onClick={() => addItem(oneEvent)}
-        >
-          <AddShoppingCartIcon />
-        </Button>
-      </Box>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          height="100vh"
-          image={oneEvent.photo}
-          alt="Paella dish"
-        />
-        <Box
-          style={{
-            marginLeft: "30px",
-          }}
-        >
-          <Rating />
+        {oneEvent.title}{" "}
+      </Typography>
+      <Box style={{ display: "flex" }}>
+        <img component="img" width="50%" src={oneEvent.photo} alt="Фото" />
+        <Box style={{ marginLeft: "15px" }}>
+          <FcLeave size={42} />
+          <div>{oneEvent.date}</div>
+          <div style={{ marginTop: "20px" }}>
+            <LocationOnIcon /> {oneEvent.place}
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <CurrencyRubleIcon /> {oneEvent.price}
+          </div>
+          <Box
+            style={{
+              marginTop: "15px",
+              marginLeft: "-30px",
+            }}
+          >
+            <Rating />
+          </Box>
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              style={{ marginTop: "15px" }}
+              variant="contained"
+              color="success"
+              onClick={() => addItem(oneEvent)}
+            >
+              Добавить в корзину
+            </Button>
+          </Box>
         </Box>
-      </Card>
+      </Box>
     </Container>
   ) : (
     <h1>Loading</h1>

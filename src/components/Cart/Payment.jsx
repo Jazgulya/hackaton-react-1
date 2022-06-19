@@ -33,10 +33,12 @@ const Payment = () => {
       <TextField
         style={{ width: "350px", margin: "10px" }}
         value={cardNumber}
+        name="number"
         onChange={(e) => setCardNumber(e.target.value)}
         label="Введите номер карты"
         color="secondary"
-        placeholder="5555 5555 5555 5555"
+        placeholder="Card Number"
+        type="tel"
         focused
       />
       <TextField
@@ -73,3 +75,69 @@ const Payment = () => {
 };
 
 export default Payment;
+
+// import React, { useState } from "react";
+// import "react-credit-cards/es/styles-compiled.css";
+// import Cards from "react-credit-cards";
+// import { TextField } from "@mui/material";
+
+// const Payment = () => {
+//   const [number, setNumber] = useState("");
+//   const [name, setName] = useState("");
+//   const [expiry, setExpiry] = useState("");
+//   const [cvc, setCvc] = useState("");
+//   const [focus, setFocus] = useState("");
+//   return (
+//     <div>
+//       <Cards number={number} name={name} expiry={expiry} focused={focus} />
+//       <form>
+//         <TextField
+//           // style={{ width: "350px", margin: "10px" }}
+//           value={number}
+//           name="number"
+//           onChange={(e) => setNumber(e.target.value)}
+//           // label="Введите номер карты"
+//           // color="secondary"
+//           placeholder="Card Number"
+//           type="tel"
+//           onFocus={(e) => setFocus(e.target.name)}
+//         />
+//         <TextField
+//           // style={{ width: "350px", margin: "10px" }}
+//           value={name}
+//           name="name"
+//           onChange={(e) => setName(e.target.value)}
+//           // label="Введите номер карты"
+//           // color="secondary"
+//           placeholder="Name"
+//           type="text"
+//           onFocus={(e) => setFocus(e.target.name)}
+//         />
+//         <TextField
+//           // style={{ width: "350px", margin: "10px" }}
+//           value={expiry}
+//           name="expiry"
+//           onChange={(e) => setExpiry(e.target.value)}
+//           // label="Введите номер карты"
+//           // color="secondary"
+//           placeholder="MM/YY Expiry"
+//           type="text"
+//           onFocus={(e) => setFocus(e.target.name)}
+//         />
+//         <TextField
+//           // style={{ width: "350px", margin: "10px" }}
+//           value={cvc}
+//           name="cvc"
+//           onChange={(e) => setCvc(e.target.value)}
+//           // label="Введите номер карты"
+//           // color="secondary"
+//           placeholder="MM/YY Expiry"
+//           type="tel"
+//           onFocus={(e) => setFocus(e.target.name)}
+//         />
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Payment;

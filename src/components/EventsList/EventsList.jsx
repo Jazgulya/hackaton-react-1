@@ -49,7 +49,7 @@ const EventsList = () => {
       />
       <Box display={"flex"}>
         {events.map((item) => (
-          <EventCard key={item.id} item={item} />
+          <EventCard key={item.id} item={item} xs={12} sm={6} md={4} /> //добавила Альфия
         ))}
       </Box>
       <Box display={"flex"} justifyContent={"center"}>
