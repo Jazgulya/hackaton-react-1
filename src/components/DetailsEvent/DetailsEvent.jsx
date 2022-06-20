@@ -8,7 +8,6 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";

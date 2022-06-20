@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { eventContext } from "../../contexts/eventContext";
 import EventCard from "../EventCard/EventCard";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Filters from "../Filters/Filters";
 import { Button, Pagination } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import { authContext } from "../../contexts/authContext";
 
 const EventsList = () => {
+  const navigate = useNavigate();
   const { events, getEvents, pages } = useContext(eventContext);
   const { isAdmin } = useContext(authContext);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,9 +17,9 @@ const EventsList = () => {
   );
   const [page, setPage] = useState(1);
   const [price, setPrice] = useState([50, 5000]);
-  useEffect(() => {
-    getEvents();
-  }, []);
+  // useEffect(() => {
+  //   getEvents();
+  // }, []);
 
   useEffect(() => {
     setSearchParams({
@@ -33,11 +34,16 @@ const EventsList = () => {
   useEffect(() => {
     getEvents();
   }, [searchParams]);
+  console.log(events);
 
   return (
-    <Container style={{ marginTop: "60px" }}>
+    <Container style={{ marginTop: "90px" }}>
       {isAdmin ? (
-        <Button variant="contained" marginTop="50px">
+        <Button
+          onClick={() => navigate("/add-event")}
+          variant="contained"
+          marginTop="30px"
+        >
           Добавить событие
         </Button>
       ) : null}

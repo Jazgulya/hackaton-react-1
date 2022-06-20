@@ -19,10 +19,12 @@ import { Badge } from "@mui/material";
 import { useContext } from "react";
 import { authContext } from "../../contexts/authContext";
 import { useCart } from "react-use-cart";
+import { style } from "@mui/system";
 
 const settings = ["Logout"];
 const Header = () => {
   const { totalItems } = useCart();
+  const { isAdmin } = useContext(authContext);
   const navigate = useNavigate();
   const { currentUser, logOut } = useContext(authContext);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -88,7 +90,7 @@ const Header = () => {
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
-                  {currentUser ? "Войти" : null}
+                  {currentUser ? "Войти" : navigate("/events")}
                 </Typography>
               </MenuItem>
               <IconButton>

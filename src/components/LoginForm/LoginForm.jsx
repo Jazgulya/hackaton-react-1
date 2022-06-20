@@ -7,15 +7,15 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error } = useContext(authContext);
-  const navi = useNavigate();
+  const navigate = useNavigate();
 
   function handleValues() {
     if (!email || !password) {
       alert("Please fill in!");
       return;
     }
-    login(email, password, navi);
-    navi("/events");
+    login(email, password, navigate);
+    navigate("/events");
   }
 
   return (
@@ -47,6 +47,7 @@ const LoginForm = () => {
 
       <TextField
         value={password}
+        type="password"
         onChange={(e) => setPassword(e.target.value)}
         style={{ width: "30%", margin: "10px" }}
         id="outlined-basic"
@@ -65,7 +66,7 @@ const LoginForm = () => {
         Еще нет аккаунта?
       </Typography>
       <Typography
-        onClick={() => navi("/register")}
+        onClick={() => navigate("/register")}
         variant="p"
         color={"primary"}
         component="h2"

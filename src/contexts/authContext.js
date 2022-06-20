@@ -11,29 +11,29 @@ const AuthContextProvider = ({ children }) => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then((res) => navigate("/login"))
+      .then(() => navigate("/login"))
       .catch((err) => setError(err.message));
   }
 
-  function login(email, password, navi) {
+  function login(email, password, navigate) {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => navi("/events"))
-      .catch((err) => setError(err));
+      .then(() => navigate("/events"))
+      .catch((err) => setError(err.message));
   }
 
   function logOut() {
     fire.auth().signOut();
   }
-
+  //admin1@gmail.com пароль "654321"
   function authListener() {
     fire.auth().onAuthStateChanged((user) => {
-      if (currentUser) {
-        if (user.email === "admin@gmail.com") {
+      if (user) {
+        if (user.email === "admin1@gmail.com") {
           setIsAdmin(true);
         }
-        alert("Добро пожаловать, администратор!");
+
         setCurrentUser(user);
       } else {
         setCurrentUser("");

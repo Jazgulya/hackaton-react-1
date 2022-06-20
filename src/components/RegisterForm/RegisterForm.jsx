@@ -25,14 +25,15 @@ const RegisterForm = () => {
       flexDirection={"column"}
       alignItems={"center"}
       justifyContent={"center"}
-      height={"80vh"}>
+      height={"80vh"}
+    >
       <Typography variant="h3" component="h2">
         Зарегистрироваться{" "}
       </Typography>
       {error ? <Alert severity="error">{error}</Alert> : null}
       <TextField
         value={email}
-        onChange={e => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)}
         style={{ width: "30%", margin: "10px" }}
         id="outlined-basic"
         label="E-mail"
@@ -41,7 +42,8 @@ const RegisterForm = () => {
 
       <TextField
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
         style={{ width: "30%", margin: "10px" }}
         id="outlined-basic"
         label="Password"
@@ -51,7 +53,8 @@ const RegisterForm = () => {
       <Button
         onClick={handleValues}
         style={{ width: "30%", margin: "10px" }}
-        variant="contained">
+        variant="contained"
+      >
         Зарегистрироваться
       </Button>
       <Typography variant="p" component="h2">
@@ -62,7 +65,8 @@ const RegisterForm = () => {
         variant="p"
         color={"primary"}
         component="h2"
-        style={{ cursor: "pointer" }}>
+        style={{ cursor: "pointer" }}
+      >
         Войти{" "}
       </Typography>
     </Box>
