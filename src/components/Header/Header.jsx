@@ -90,7 +90,7 @@ const Header = () => {
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
-                  {currentUser ? "Войти" : navigate("/events")}
+                  {currentUser ? "Войти" : null}
                 </Typography>
               </MenuItem>
               <IconButton>
