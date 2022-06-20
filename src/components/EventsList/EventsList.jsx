@@ -44,7 +44,7 @@ const EventsList = () => {
           variant="contained"
           marginTop="30px"
         >
-          Добавить событие
+          Добавить новое событие
         </Button>
       ) : null}
       <Filters
